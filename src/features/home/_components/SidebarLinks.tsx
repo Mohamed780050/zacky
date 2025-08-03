@@ -15,8 +15,8 @@ function SidebarLinks({
 }) {
   const pathname = usePathname();
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
-      <div className="pl-3 mb-14">
+    <div className="flex h-full flex-col space-y-4 bg-[#111827] py-4 text-white">
+      <div className="mb-14 pl-3">
         <Link
           href="/home"
           className="flex items-center"
@@ -34,8 +34,8 @@ function SidebarLinks({
             <Link
               href={link.href}
               className={cn(
-                "flex items-center gap-3 flex-1 text-sm group p-3 w-full rounded-lg justify-start font-medium cursor-pointer hover: text-white hover:bg-white/10 transition",
-                pathname === link.href ? "bg-white/10 text-white" : ""
+                "group flex w-full flex-1 cursor-pointer items-center justify-start gap-3 rounded-lg p-3 text-sm font-medium text-white/60 transition hover:bg-white/10 hover:text-white",
+                pathname === link.href ? "bg-white/10 text-white" : "",
               )}
             >
               {link.icon}
