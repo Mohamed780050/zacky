@@ -4,13 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 function Tool({
   bgColor,
-  href,
   icon,
   label,
 }: {
   label: string;
   bgColor: string;
-  href: string;
   icon: React.ReactNode;
 }) {
   return (

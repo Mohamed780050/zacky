@@ -12,7 +12,6 @@ function Tools() {
             <Link href={link.href}>
               <Tool
                 bgColor={link.bgColor}
-                href={link.href}
                 icon={link.icon}
                 label={link.label}
               />
