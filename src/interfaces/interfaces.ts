@@ -6,3 +6,9 @@ export interface SidebarLinksInterface {
   icon: ReactNode;
   bgColor?: string;
 }
+export interface HeadingProps {
+  title: string;
+  description?: string;
+  icon: ReactNode;
+  bgColor: string;
+}
