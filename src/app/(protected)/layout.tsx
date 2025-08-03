@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import Sidebar from "@/features/home/_components/Sidebar";
-import Navbar from "@/features/home/_components/Navbar";
+import Sidebar from "@/features/root/_components/Sidebar";
+import Navbar from "@/features/root/_components/Navbar";
 
 export const metadata: Metadata = {
   title: ``,
