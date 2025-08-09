@@ -12,3 +12,10 @@ export interface HeadingProps {
   icon: ReactNode;
   bgColor: string;
 }
+export interface ConversationActionState {
+  errors?: {
+    prompt?: string[];
+  };
+  message?: string | null;
+  response?: string | null;
+}
