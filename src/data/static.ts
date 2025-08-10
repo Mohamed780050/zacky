@@ -52,3 +52,8 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
     icon: React.createElement(SettingsIcon),
   },
 ];
+
+export const FormStyles =
+  "absolute bottom-3 w-full max-w-[calc(100%-2rem)] gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)]";
+export const SubmitButtonStyles =
+  "absolute top-1/2 right-1.5 translate-y-[-50%] cursor-pointer rounded-full";

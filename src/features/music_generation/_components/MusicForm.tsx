@@ -5,6 +5,7 @@ import { conversationSubmit } from "../actions/conversationActions";
 import { Button } from "@/components/ui/button";
 import { SendIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import { FormStyles, SubmitButtonStyles } from "@/data/static";
 
 function MusicForm() {
   const initialState: ConversationActionState = {
@@ -16,10 +17,7 @@ function MusicForm() {
     initialState,
   );
   return (
-    <form
-      action={formAction}
-      className="absolute bottom-3 w-full max-w-[calc(100%-2rem)] gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)]"
-    >
+    <form action={formAction} className={FormStyles}>
       <Textarea
         id="prompt"
         name="prompt"
@@ -28,11 +26,7 @@ function MusicForm() {
         className="max-h-32 resize-none border-0 shadow-none outline-none focus-visible:ring-0 focus-visible:ring-transparent"
         placeholder="Type your message here..."
       />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className="absolute top-1/2 right-1.5 translate-y-[-50%] cursor-pointer rounded-full"
-      >
+      <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
       </Button>
       {state.errors?.prompt && (
