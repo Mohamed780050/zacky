@@ -1,0 +1,53 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  sender    String
+  userId    String
+  createdAt DateTime @default(now()) @map("created_at")
+}
+
+model ImageMessage {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl    String
+  sender      String
+  userId      String
+  createdAt   DateTime @default(now()) @map("created_at")
+  description String?
+}
+
+model VideoMessage {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  videoUrl    String
+  sender      String
+  userId      String
+  createdAt   DateTime @default(now()) @map("created_at")
+  description String?
+}
+
+model AudioMessage {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  audioUrl   String
+  sender     String
+  userId     String
+  createdAt  DateTime @default(now()) @map("created_at")
+  transcript String?
+}
+
+model CodeMessage {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  code        String
+  language    String
+  sender      String
+  userId      String
+  createdAt   DateTime @default(now()) @map("created_at")
+  description String?
+}
