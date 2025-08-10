@@ -23,13 +23,9 @@ function CodeForm() {
         name="prompt"
         disabled={isPending}
         required
-        placeholder="Type your message here..."
+        placeholder="Ask or type your code here..."
       />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className={SubmitButtonStyles}
-      >
+      <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
       </Button>
       {state.errors?.prompt && (

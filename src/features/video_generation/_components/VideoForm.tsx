@@ -23,7 +23,7 @@ function VideoForm() {
         name="prompt"
         disabled={isPending}
         required
-        placeholder="Type your message here..."
+        placeholder="Describe the video you want to generate..."
       />
       <Button
         type="submit"

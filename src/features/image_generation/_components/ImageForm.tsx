@@ -26,7 +26,7 @@ function ImageForm() {
         name="prompt"
         disabled={isPending}
         required
-        placeholder="Type your message here..."
+        placeholder="Describe the image you want to generate..."
       />
       <Button
         type="submit"

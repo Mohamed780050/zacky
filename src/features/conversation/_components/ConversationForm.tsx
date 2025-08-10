@@ -26,7 +26,7 @@ function ConversationForm() {
         name="prompt"
         disabled={isPending}
         required
-        placeholder="Type your message here..."
+        placeholder="Start your conversation here..."
       />
       <Button
         type="submit"

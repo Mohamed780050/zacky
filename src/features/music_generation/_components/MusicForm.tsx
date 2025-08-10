@@ -23,7 +23,7 @@ function MusicForm() {
         name="prompt"
         disabled={isPending}
         required
-        placeholder="Type your message here..."
+        placeholder="Describe the music you want to generate..."
       />
       <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
