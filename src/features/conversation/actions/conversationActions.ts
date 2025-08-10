@@ -31,11 +31,8 @@ export async function conversationSubmit(
       },
     );
     const data = await response.json();
-    console.log(data);
     return {
-      response:
-        `${data.candidates?.[0]?.content?.parts?.[0]?.text}` ||
-        "No response from AI",
+      message: null,
     };
   } catch {
     return { message: "An error Connecting to the server" };

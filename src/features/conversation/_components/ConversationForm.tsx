@@ -2,39 +2,38 @@
 import { ConversationActionState } from "@/interfaces/interfaces";
 import { useActionState } from "react";
 import { conversationSubmit } from "../actions/conversationActions";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SendIcon } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 function ConversationForm() {
   const initialState: ConversationActionState = {
     errors: {},
     message: null,
-    response: null,
   };
   const [state, formAction, isPending] = useActionState(
     conversationSubmit,
     initialState,
   );
-  console.log(initialState);
   return (
     <form
       action={formAction}
-      className="grid w-full grid-cols-12 gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:px-4"
+      className="absolute bottom-3 w-full max-w-[calc(100%-2rem)] gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)]"
     >
-      <Input
+      <Textarea
         id="prompt"
         name="prompt"
         disabled={isPending}
         required
-        className="col-span-12 border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent lg:col-span-10"
+        className="max-h-32 resize-none border-0 shadow-none outline-none focus-visible:ring-0 focus-visible:ring-transparent"
         placeholder="Type your message here..."
       />
       <Button
         type="submit"
         disabled={isPending}
-        className="col-span-12 w-full cursor-pointer lg:col-span-2"
+        className="absolute top-1/2 right-1.5 translate-y-[-50%] cursor-pointer rounded-full"
       >
-        {isPending ? "Generating..." : "Generate"}
+        <SendIcon />
       </Button>
       {state.errors?.prompt && (
         <div className="text-red-500">
@@ -42,9 +41,6 @@ function ConversationForm() {
             <p key={index}>{error}</p>
           ))}
         </div>
-      )}
-      {state.response && (
-        <div className="col-span-12 text-green-500">{state.response}</div>
       )}
     </form>
   );

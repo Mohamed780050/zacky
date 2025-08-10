@@ -17,5 +17,4 @@ export interface ConversationActionState {
     prompt?: string[];
   };
   message?: string | null;
-  response?: string | null;
 }
