@@ -1,5 +1,5 @@
 import Empty from "@/features/root/_components/Empty";
-import { ImageIcon, MessageSquare } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 function ImageMessages() {
   return (
