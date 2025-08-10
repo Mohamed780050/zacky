@@ -26,7 +26,6 @@ function ConversationForm() {
         name="prompt"
         disabled={isPending}
         required
-        className="max-h-32 resize-none border-0 shadow-none outline-none focus-visible:ring-0 focus-visible:ring-transparent"
         placeholder="Type your message here..."
       />
       <Button
