@@ -18,3 +18,10 @@ export interface ConversationActionState {
   };
   message?: string | null;
 }
+
+export interface EmptyInterface {
+  label: string;
+  description: string;
+  icon: ReactNode;
+  bgColor: string;
+}
