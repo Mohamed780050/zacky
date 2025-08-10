@@ -5,8 +5,8 @@ function CodeMessages() {
   return (
     <div>
       <Empty
-        label="What code do you need assistance with?"
-        description="Ask Zacky to generate code for you."
+        label="What is the code that you want me to write?"
+        description="I do know how to write code with any language, just describe it below."
         icon={<CodeIcon className="h-15 w-15 text-green-700" />}
         bgColor="bg-green-700/10"
       />
