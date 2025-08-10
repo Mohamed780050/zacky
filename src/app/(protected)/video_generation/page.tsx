@@ -6,7 +6,7 @@ function page() {
     <div>
       <Heading
         title="Video Generation"
-        description="Generate images using Zacky Advanced AI."
+        description="Generate videos using Zacky Advanced AI."
         icon={<VideoIcon className="h-10 w-10 text-orange-700" />}
         bgColor="bg-orange-700/10"
       />
