@@ -57,3 +57,5 @@ export const FormStyles =
   "absolute bottom-3 w-full max-w-[calc(100%-2rem)] gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)]";
 export const SubmitButtonStyles =
   "absolute top-1/2 right-1.5 translate-y-[-50%] cursor-pointer rounded-full";
+// export const beforeElementOfMessages =
+//   "relative after:content-[''] after:block after:w-5 after:h-5 after:bg-red-800 after:absolute";
