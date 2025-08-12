@@ -25,3 +25,7 @@ export interface EmptyInterface {
   icon: ReactNode;
   bgColor: string;
 }
+export interface MessageInterfaces {
+  message: string;
+  response: string;
+}

@@ -2,6 +2,8 @@
 import { ConversationActionState } from "@/interfaces/interfaces";
 import { conversationSchema } from "../Schema/conversationSchema";
 import { flattenError } from "zod";
+import { sendConversation } from "@/lib/sendMessages";
+import { revalidatePath } from "next/cache";
 export async function conversationSubmit(
   prevState: ConversationActionState,
   formData: FormData,
@@ -26,11 +28,27 @@ export async function conversationSubmit(
           "X-goog-api-key": `${process.env.GOOGLE_AI_STUDIO_API_KEY}`, // 🚨 Not secure!
         },
         body: JSON.stringify({
+          system_instruction: {
+            // <-- tell the model how to behave
+            parts: [
+              {
+                text: "You are a useful assistant. Be helpful, concise, and polite.",
+              },
+              {
+                text: "Your name is Zacky.",
+              },
+            ],
+          },
           contents: [{ parts: [{ text: prompt }] }],
         }),
       },
     );
     const data = await response.json();
+    await sendConversation(
+      prompt,
+      `${data?.candidates?.[0]?.content?.parts[0].text}`,
+    );
+    revalidatePath("/conversation");
     return {
       message: null,
     };

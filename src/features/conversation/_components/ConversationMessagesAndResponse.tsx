@@ -1,10 +1,11 @@
+import { MessageInterfaces } from "@/interfaces/interfaces";
 import Message from "../../../components/Message";
 import Response from "./Response";
 
 function ConversationMessagesAndResponse({
   messages,
 }: {
-  messages: { message: string; response: string }[];
+  messages: MessageInterfaces[];
 }) {
   return (
     <ul>

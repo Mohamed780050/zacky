@@ -7,10 +7,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Message {
+model Conversation {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  content   String
-  sender    String
+  message   String
+  response  String
   userId    String
   createdAt DateTime @default(now()) @map("created_at")
 }

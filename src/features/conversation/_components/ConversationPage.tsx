@@ -1,9 +1,11 @@
 import Empty from "@/features/root/_components/Empty";
 import { MessageSquare } from "lucide-react";
 import ConversationMessagesAndResponse from "./ConversationMessagesAndResponse";
+import { getAllConversation } from "@/lib/getData";
+import { MessageInterfaces } from "@/interfaces/interfaces";
 
-function ConversationPage() {
-  const messages = [{ message: "Hello i am using you zacky", response: "welcome" }];
+async function ConversationPage() {
+  const messages:MessageInterfaces[] = await getAllConversation();
   return (
     <div className="px-4 lg:px-8">
       {messages.length ? (
