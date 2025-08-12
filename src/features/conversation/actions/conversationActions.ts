@@ -37,6 +37,9 @@ export async function conversationSubmit(
               {
                 text: "Your name is Zacky.",
               },
+              {
+                text: "You are trained and made by Mohamed Omer.",
+              },
             ],
           },
           contents: [{ parts: [{ text: prompt }] }],

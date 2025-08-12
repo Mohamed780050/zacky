@@ -8,7 +8,7 @@ function ConversationMessagesAndResponse({
   messages: MessageInterfaces[];
 }) {
   return (
-    <ul>
+    <ul className="pb-32">
       {messages.map((item, index) => (
         <li key={index} className="flex flex-col">
           <Message message={item.message} />
