@@ -5,7 +5,7 @@ import { getAllConversation } from "@/lib/getData";
 import { MessageInterfaces } from "@/interfaces/interfaces";
 
 async function ConversationPage() {
-  const messages:MessageInterfaces[] = await getAllConversation();
+  const messages: MessageInterfaces[] = await getAllConversation();
   return (
     <div className="px-4 lg:px-8">
       {messages.length ? (

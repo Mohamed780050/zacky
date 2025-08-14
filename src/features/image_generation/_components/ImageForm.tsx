@@ -1,7 +1,7 @@
 "use client";
 import { ConversationActionState } from "@/interfaces/interfaces";
 import { useActionState } from "react";
-import { conversationSubmit } from "../actions/conversationActions";
+import { ImageSubmit } from "../actions/ImagesActions";
 import { Button } from "@/components/ui/button";
 import { SendIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,7 +13,7 @@ function ImageForm() {
     message: null,
   };
   const [state, formAction, isPending] = useActionState(
-    conversationSubmit,
+    ImageSubmit,
     initialState,
   );
   return (
