@@ -70,3 +70,5 @@ export const instructions = [
     text: "You are trained and made by Mohamed Omer.",
   },
 ];
+
+export const Max_FREE_COUNTS = 5;

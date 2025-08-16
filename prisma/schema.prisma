@@ -50,3 +50,11 @@ model CodeMessage {
   createdAt   DateTime @default(now()) @map("created_at")
   description String?
 }
+
+model UserLimitation {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  count     Int      @default(0)
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt()
+}
