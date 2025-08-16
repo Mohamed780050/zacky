@@ -1,7 +1,7 @@
 "use client";
 import { ConversationActionState } from "@/interfaces/interfaces";
 import { useActionState } from "react";
-import { CodeSubmit } from "../actions/conversationActions";
+import { CodeSubmit } from "../actions/CodeActions";
 import { Button } from "@/components/ui/button";
 import { SendIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";

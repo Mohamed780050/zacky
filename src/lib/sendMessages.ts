@@ -17,8 +17,8 @@ export async function sendCode(prompt: string, response: string) {
   await db.codeMessage.create({
     data: {
       userId: `${userId}`,
-      code: response,
-      prompt,
+      response: response,
+      message: prompt,
     },
   });
 }

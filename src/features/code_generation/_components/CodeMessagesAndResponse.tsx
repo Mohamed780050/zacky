@@ -2,7 +2,7 @@ import { MessageInterfaces } from "@/interfaces/interfaces";
 import Message from "../../../components/Message";
 import Response from "../../../components/Response";
 
-function ConversationMessagesAndResponse({
+function CodeMessagesAndResponse({
   messages,
 }: {
   messages: MessageInterfaces[];
@@ -18,4 +18,4 @@ function ConversationMessagesAndResponse({
     </ul>
   );
 }
-export default ConversationMessagesAndResponse;
+export default CodeMessagesAndResponse;

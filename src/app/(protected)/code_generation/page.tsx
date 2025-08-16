@@ -1,5 +1,5 @@
 import CodeForm from "@/features/code_generation/_components/CodeForm";
-import CodeMessages from "@/features/code_generation/_components/CodeMessages";
+import CodeMessages from "@/features/code_generation/_components/CodePage";
 import Heading from "@/features/root/_components/Heading";
 import { CodeIcon } from "lucide-react";
 
