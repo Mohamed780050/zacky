@@ -45,9 +45,8 @@ model AudioMessage {
 model CodeMessage {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   code        String
-  language    String
-  sender      String
   userId      String
+  prompt      String
   createdAt   DateTime @default(now()) @map("created_at")
   description String?
 }

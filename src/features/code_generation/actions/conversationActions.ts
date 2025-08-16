@@ -2,7 +2,10 @@
 import { ConversationActionState } from "@/interfaces/interfaces";
 import { conversationSchema } from "../Schema/conversationSchema";
 import { flattenError } from "zod";
-export async function conversationSubmit(
+import { sendCode } from "@/lib/sendMessages";
+import { GenerateCodeWithModel } from "@/lib/communicateWithModels";
+
+export async function CodeSubmit(
   prevState: ConversationActionState,
   formData: FormData,
 ) {
@@ -17,20 +20,10 @@ export async function conversationSubmit(
     }
 
     const { prompt } = parsedData.data;
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-goog-api-key": `${process.env.GOOGLE_AI_STUDIO_API_KEY}`, // 🚨 Not secure!
-        },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-        }),
-      },
-    );
-    const data = await response.json();
+    const data = await GenerateCodeWithModel(prompt);
+
+    await sendCode(prompt, `${data?.candidates?.[0]?.content?.parts[0].text}`);
+
     return {
       message: null,
     };
