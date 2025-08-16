@@ -31,6 +31,6 @@ export async function CheckLimitation() {
       userId,
     },
   });
-  if (!userLimitation || userLimitation.count < 5) return true;
+  if (!userLimitation || userLimitation.count < Max_FREE_COUNTS) return true;
   else return false;
 }
