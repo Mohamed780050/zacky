@@ -16,11 +16,9 @@ function ConversationForm() {
     conversationSubmit,
     initialState,
   );
+  console.log(initialState);
   return (
-    <form
-      action={formAction}
-      className={FormStyles}
-    >
+    <form action={formAction} className={FormStyles}>
       <Textarea
         id="prompt"
         name="prompt"
@@ -28,11 +26,7 @@ function ConversationForm() {
         required
         placeholder="Start your conversation here..."
       />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className={SubmitButtonStyles}
-      >
+      <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
       </Button>
       {state.errors?.prompt && (

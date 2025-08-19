@@ -2,7 +2,7 @@ import { db } from "./db";
 import { Max_FREE_COUNTS } from "@/data/static";
 import { auth } from "@clerk/nextjs/server";
 
-export async function decreaseFreeTrail() {
+export async function decreaseFreeTrailCount() {
   const { userId } = await auth();
   if (!userId) return null;
   const findUserLimitation = await db.userLimitation.findFirst({

@@ -5,6 +5,8 @@ import { flattenError } from "zod";
 import { sendConversation } from "@/lib/sendMessages";
 import { revalidatePath } from "next/cache";
 import { conversationWithModel } from "@/lib/communicateWithModels";
+import { CheckLimitation, decreaseFreeTrailCount } from "@/lib/api-limit";
+
 export async function conversationSubmit(
   prevState: ConversationActionState,
   formData: FormData,
@@ -20,6 +22,12 @@ export async function conversationSubmit(
     }
 
     const { prompt } = parsedData.data;
+    const stillCanUseFreeTrial = await CheckLimitation();
+
+    if (!stillCanUseFreeTrial)
+      throw { status: 403, message: "free trail is over" };
+    await decreaseFreeTrailCount();
+
     const data = await conversationWithModel(prompt);
 
     await sendConversation(
@@ -32,7 +40,11 @@ export async function conversationSubmit(
     return {
       message: null,
     };
-  } catch {
-    return { message: "An error Connecting to the server" };
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "An error Connecting to the server",
+      error: { prompt: "finished your free trail" },
+    };
   }
 }
