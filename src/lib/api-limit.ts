@@ -34,3 +34,16 @@ export async function CheckLimitation() {
   if (!userLimitation || userLimitation.count < Max_FREE_COUNTS) return true;
   else return false;
 }
+
+export async function Limitation() {
+  const { userId } = await auth();
+  const userLimitation = await db.userLimitation.findFirst({
+    where: {
+      userId: `${userId}`,
+    },
+    select: {
+      count: true,
+    },
+  });
+  return userLimitation;
+}
