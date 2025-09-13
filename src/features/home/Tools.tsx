@@ -9,13 +9,23 @@ function Tools() {
         if (link.bgColor === undefined) return null;
         return (
           <li key={index}>
-            <Link href={link.href}>
+            {link.isComingSoon ? (
               <Tool
                 bgColor={link.bgColor}
                 icon={link.icon}
                 label={link.label}
+                isComingSoon
               />
-            </Link>
+            ) : (
+              <Link href={link.href}>
+                <Tool
+                  bgColor={link.bgColor}
+                  icon={link.icon}
+                  label={link.label}
+                  isComingSoon={false}
+                />
+              </Link>
+            )}
           </li>
         );
       })}

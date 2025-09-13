@@ -29,20 +29,23 @@ function SidebarLinks({
         </Link>
       </div>
       <ul className="space-y-1">
-        {SidebarLinksData.map((link, index) => (
-          <li key={index} className="px-3" onClick={() => setIsOpen?.(false)}>
-            <Link
-              href={link.href}
-              className={cn(
-                "group flex w-full flex-1 cursor-pointer items-center justify-start gap-3 rounded-lg p-3 text-sm font-medium text-white/60 transition hover:bg-white/10 hover:text-white",
-                pathname === link.href ? "bg-white/10 text-white" : "",
-              )}
-            >
-              {link.icon}
-              {link.label}
-            </Link>
-          </li>
-        ))}
+        {SidebarLinksData.map((link, index) => {
+          if (link.isComingSoon) return null;
+          return (
+            <li key={index} className="px-3" onClick={() => setIsOpen?.(false)}>
+              <Link
+                href={link.href}
+                className={cn(
+                  "group flex w-full flex-1 cursor-pointer items-center justify-start gap-3 rounded-lg p-3 text-sm font-medium text-white/60 transition hover:bg-white/10 hover:text-white",
+                  pathname === link.href ? "bg-white/10 text-white" : ""
+                )}
+              >
+                {link.icon}
+                {link.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

@@ -27,18 +27,21 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
     href: "/image_generation",
     icon: React.createElement(ImageIcon, { className: "text-pink-500" }),
     bgColor: "bg-pink-500/10",
+    isComingSoon:true
   },
   {
     label: "Video Generation",
     href: "/video_generation",
     icon: React.createElement(VideoIcon, { className: "text-orange-700" }),
     bgColor: "bg-orange-700/10",
+    isComingSoon:true
   },
   {
     label: "Music Generation",
     href: "/music_generation",
     icon: React.createElement(MusicIcon, { className: "text-emerald-500" }),
     bgColor: "bg-emerald-500/10",
+    isComingSoon:true
   },
   {
     label: "Code Generation",

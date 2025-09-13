@@ -5,6 +5,7 @@ export interface SidebarLinksInterface {
   href: string;
   icon: ReactNode;
   bgColor?: string;
+  isComingSoon?:boolean;
 }
 export interface HeadingProps {
   title: string;
