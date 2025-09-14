@@ -5,7 +5,7 @@ export interface SidebarLinksInterface {
   href: string;
   icon: ReactNode;
   bgColor?: string;
-  isComingSoon?:boolean;
+  isComingSoon?: boolean;
 }
 export interface HeadingProps {
   title: string;
@@ -29,4 +29,10 @@ export interface EmptyInterface {
 export interface MessageInterfaces {
   message: string;
   response: string;
+}
+
+export interface userProModalInterface {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
 }

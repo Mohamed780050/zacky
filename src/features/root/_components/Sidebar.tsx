@@ -5,7 +5,7 @@ import FreeCountRequest from "./FreeCountRequest";
 
 function Sidebar() {
   return (
-    <div className="h-full hidden md:w-72 md:flex md:flex-col md:fixed md:inset-y-0 z-[80] bg-gray-900">
+    <div className="hidden h-full bg-gray-900 md:fixed md:inset-y-0 md:flex md:w-72 md:flex-col">
       <SidebarLinks />
       <Suspense fallback={<Skeleton className="mx-3 h-[188px] w-[264px]" />}>
         <FreeCountRequest />
