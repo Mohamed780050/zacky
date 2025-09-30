@@ -1,4 +1,3 @@
-"use client";
 import {
   Sheet,
   SheetContent,
@@ -6,16 +5,20 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import SidebarLinks from "./SidebarLinks";
-import { useState } from "react";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import FreeCountRequest from "./FreeCountRequest";
 
 function SidebarMobile({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent side="left">
-        <SheetTitle className="hidden"/>
-        <SidebarLinks setIsOpen={setIsOpen} />
+      <SheetContent side="left" className="bg-[#111827]">
+        <SheetTitle className="hidden" />
+        <SidebarLinks isADialog />
+        <Suspense fallback={<Skeleton className="mx-3 h-[188px] w-full" />}>
+          <FreeCountRequest />
+        </Suspense>
       </SheetContent>
     </Sheet>
   );

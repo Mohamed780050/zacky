@@ -9,7 +9,7 @@ import { useProModal } from "@/hooks/useProModal";
 function FreeCount({ freeCount }: { freeCount: number }) {
   const proModal = useProModal();
   return (
-    <div className="px-3">
+    <div className="bg-[#111827] px-3">
       <Card className="border-0 bg-white/10">
         <CardContent className="py-6">
           <div className="mb-4 space-y-2 text-center text-sm text-white">
