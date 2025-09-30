@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import ComingSoonBanner from "./ComingSoonBanner";
 
 function Tool({
@@ -8,11 +8,13 @@ function Tool({
   icon,
   label,
   isComingSoon,
+  isChecked,
 }: {
   label: string;
   bgColor: string;
   icon: React.ReactNode;
   isComingSoon?: boolean;
+  isChecked?: boolean;
 }) {
   return (
     <Card
@@ -22,7 +24,14 @@ function Tool({
         <div className={cn("w-fit rounded-md p-2", bgColor)}>{icon}</div>
         <div className="font-semibold">{label}</div>
       </div>
-      {isComingSoon ? <ComingSoonBanner /> : <ArrowRight className="h-5 w-5" />}
+      {isComingSoon ? (
+        <div className={`${isChecked && "hidden"}`}>
+          <ComingSoonBanner />
+        </div>
+      ) : (
+        <ArrowRight className={`${isChecked && "hidden"} h-5 w-5`} />
+      )}
+      {isChecked && <Check />}
     </Card>
   );
 }

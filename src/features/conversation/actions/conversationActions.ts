@@ -40,11 +40,17 @@ export async function conversationSubmit(
     return {
       message: null,
     };
-  } catch (err) {
-    console.log(err);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
+    if (err.status === 403)
+      return {
+        status: err.status,
+        message: `${err.message}`,
+      };
     return {
       message: "An error Connecting to the server",
       error: { prompt: "finished your free trail" },
+      status: undefined,
     };
   }
 }

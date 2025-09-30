@@ -18,6 +18,8 @@ export interface ConversationActionState {
     prompt?: string[];
   };
   message?: string | null;
+  status?: number;
+  error?: { prompt: string };
 }
 
 export interface EmptyInterface {

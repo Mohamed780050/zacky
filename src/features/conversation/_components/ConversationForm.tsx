@@ -6,17 +6,24 @@ import { Button } from "@/components/ui/button";
 import { SendIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
+import { useProModal } from "@/hooks/useProModal";
 
 function ConversationForm() {
+  const proModel = useProModal();
   const initialState: ConversationActionState = {
     errors: {},
     message: null,
+    status: undefined,
   };
+
   const [state, formAction, isPending] = useActionState(
     conversationSubmit,
     initialState,
   );
-  console.log(initialState);
+  if (state.status === 403) {
+    proModel.onOpen();
+    state.status = undefined;
+  }
   return (
     <form action={formAction} className={FormStyles}>
       <Textarea

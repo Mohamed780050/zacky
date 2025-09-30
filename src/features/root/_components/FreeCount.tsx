@@ -1,10 +1,13 @@
+"use client";
 import { Max_FREE_COUNTS } from "@/data/static";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import { useProModal } from "@/hooks/useProModal";
 
 function FreeCount({ freeCount }: { freeCount: number }) {
+  const proModal = useProModal();
   return (
     <div className="px-3">
       <Card className="border-0 bg-white/10">
@@ -18,7 +21,11 @@ function FreeCount({ freeCount }: { freeCount: number }) {
               {freeCount} / {Max_FREE_COUNTS} Free Generations.
             </p>
           </div>
-          <Button variant="premium" className="w-full cursor-pointer">
+          <Button
+            onClick={proModal.onOpen}
+            variant="premium"
+            className="w-full cursor-pointer"
+          >
             Upgrade
             <Zap className="ml-2 h-4 w-4 fill-white" />
           </Button>
