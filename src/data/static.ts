@@ -1,4 +1,7 @@
-import { SidebarLinksInterface } from "@/interfaces/interfaces";
+import {
+  SidebarLinksInterface,
+  testimonialsInterface,
+} from "@/interfaces/interfaces";
 import {
   CodeIcon,
   Home,
@@ -27,21 +30,21 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
     href: "/image_generation",
     icon: React.createElement(ImageIcon, { className: "text-pink-500" }),
     bgColor: "bg-pink-500/10",
-    isComingSoon:true
+    isComingSoon: true,
   },
   {
     label: "Video Generation",
     href: "/video_generation",
     icon: React.createElement(VideoIcon, { className: "text-orange-700" }),
     bgColor: "bg-orange-700/10",
-    isComingSoon:true
+    isComingSoon: true,
   },
   {
     label: "Music Generation",
     href: "/music_generation",
     icon: React.createElement(MusicIcon, { className: "text-emerald-500" }),
     bgColor: "bg-emerald-500/10",
-    isComingSoon:true
+    isComingSoon: true,
   },
   {
     label: "Code Generation",
@@ -74,4 +77,30 @@ export const instructions = [
   },
 ];
 
+export const testimonials: testimonialsInterface[] = [
+  {
+    name: "Mohamed Baker",
+    avatar: "MB",
+    description: "This is the greatest AI tool I have ever tested.",
+    title: "Flutter Developer",
+  },
+  {
+    name: "Mohamed Baker",
+    avatar: "MB",
+    description: "This is the greatest AI tool I have ever tested.",
+    title: "Flutter Developer",
+  },
+  {
+    name: "Mohamed Baker",
+    avatar: "MB",
+    description: "This is the greatest AI tool I have ever tested.",
+    title: "Flutter Developer",
+  },
+  {
+    name: "Mohamed Baker",
+    avatar: "MB",
+    description: "This is the greatest AI tool I have ever tested.",
+    title: "Flutter Developer",
+  },
+];
 export const Max_FREE_COUNTS = 5;

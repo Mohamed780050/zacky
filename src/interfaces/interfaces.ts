@@ -38,3 +38,9 @@ export interface userProModalInterface {
   onOpen: () => void;
   onClose: () => void;
 }
+export interface testimonialsInterface {
+  name: string;
+  avatar: string;
+  title: string;
+  description: string;
+}
