@@ -1,10 +1,13 @@
-import LandingNavbar from "@/features/root/_components/LandingNavbar";
-import Image from "next/image";
+import LandingContent from "@/features/landing/LandingContent";
+import LandingHero from "@/features/landing/LandingHero";
+import LandingNavbar from "@/features/landing/LandingNavbar";
 
 export default function Home() {
   return (
     <div className="h-full">
       <LandingNavbar />
+      <LandingHero />
+      <LandingContent />
     </div>
   );
 }
