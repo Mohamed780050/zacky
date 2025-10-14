@@ -103,4 +103,4 @@ export const testimonials: testimonialsInterface[] = [
     title: "Flutter Developer",
   },
 ];
-export const Max_FREE_COUNTS = 5;
+export const Max_FREE_COUNTS = 15;
