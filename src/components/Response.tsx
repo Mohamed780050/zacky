@@ -2,7 +2,7 @@ import MarkdownRender from "./MarkdownRender";
 
 function Response({ response }: { response: string }) {
   return (
-    <div className="max-w-1/2 self-start rounded border bg-gray-100/30 p-2 break-words text-pretty overflow-x-auto">
+    <div className="max-w-[calc(100%-40px)] self-start overflow-x-auto rounded border bg-gray-100/30 p-2 text-pretty break-words sm:max-w-1/2">
       <MarkdownRender md={response} />
     </div>
   );
