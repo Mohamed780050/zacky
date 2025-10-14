@@ -24,6 +24,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Zacky",
   description: "AI Platform",
+  icons: {
+    icon: [
+      {
+        url: "/logo.png",
+        type: "image/png",
+        sizes: "256x256",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
