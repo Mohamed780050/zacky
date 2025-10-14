@@ -1,9 +1,9 @@
 "use server";
-import { ConversationActionState } from "@/interfaces/interfaces";
+import { AudioActionStateInterface } from "@/interfaces/interfaces";
 import { conversationSchema } from "../Schema/conversationSchema";
 import { flattenError } from "zod";
 export async function conversationSubmit(
-  prevState: ConversationActionState,
+  prevState: AudioActionStateInterface,
   formData: FormData,
 ) {
   try {

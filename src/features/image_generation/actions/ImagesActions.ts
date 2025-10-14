@@ -1,10 +1,10 @@
 "use server";
-import { ConversationActionState } from "@/interfaces/interfaces";
+import { ImageActionStateInterface } from "@/interfaces/interfaces";
 import { conversationSchema } from "../Schema/conversationSchema";
 import { flattenError } from "zod";
 import { CreateImageWithAi } from "@/lib/communicateWithModels";
 export async function ImageSubmit(
-  prevState: ConversationActionState,
+  prevState: ImageActionStateInterface,
   formData: FormData,
 ) {
   try {

@@ -44,3 +44,24 @@ export interface testimonialsInterface {
   title: string;
   description: string;
 }
+export interface ImageActionStateInterface {
+  errors?: {
+    prompt?: string[];
+  };
+  message?: string | null;
+  error?: { prompt: string };
+}
+export interface AudioActionStateInterface {
+  errors?: {
+    prompt?: string[];
+  };
+  message?: string | null;
+  error?: { prompt: string };
+}
+export interface VideoActionStateInterface {
+  errors?: {
+    prompt?: string[];
+  };
+  message?: string | null;
+  error?: { prompt: string };
+}

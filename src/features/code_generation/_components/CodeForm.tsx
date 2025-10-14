@@ -12,10 +12,10 @@ function CodeForm() {
     errors: {},
     message: null,
   };
-  const [state, formAction, isPending] = useActionState(
-    CodeSubmit,
-    initialState,
-  );
+  const [state, formAction, isPending] = useActionState<
+    ConversationActionState,
+    FormData
+  >(CodeSubmit, initialState);
   return (
     <form action={formAction} className={FormStyles}>
       <Textarea

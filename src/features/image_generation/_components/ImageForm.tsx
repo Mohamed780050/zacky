@@ -1,5 +1,7 @@
 "use client";
-import { ConversationActionState } from "@/interfaces/interfaces";
+import {
+  ImageActionStateInterface,
+} from "@/interfaces/interfaces";
 import { useActionState } from "react";
 import { ImageSubmit } from "../actions/ImagesActions";
 import { Button } from "@/components/ui/button";
@@ -8,19 +10,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
 
 function ImageForm() {
-  const initialState: ConversationActionState = {
+  const initialState: ImageActionStateInterface = {
     errors: {},
     message: null,
   };
-  const [state, formAction, isPending] = useActionState(
-    ImageSubmit,
-    initialState,
-  );
+  const [state, formAction, isPending] = useActionState<
+    ImageActionStateInterface,
+    FormData
+  >(ImageSubmit, initialState);
   return (
-    <form
-      action={formAction}
-      className={FormStyles}
-    >
+    <form action={formAction} className={FormStyles}>
       <Textarea
         id="prompt"
         name="prompt"
@@ -28,11 +27,7 @@ function ImageForm() {
         required
         placeholder="Describe the image you want to generate..."
       />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className={SubmitButtonStyles}
-      >
+      <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
       </Button>
       {state.errors?.prompt && (

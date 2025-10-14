@@ -16,10 +16,10 @@ function ConversationForm() {
     status: undefined,
   };
 
-  const [state, formAction, isPending] = useActionState(
-    conversationSubmit,
-    initialState,
-  );
+  const [state, formAction, isPending] = useActionState<
+    ConversationActionState,
+    FormData
+  >(conversationSubmit, initialState);
   if (state.status === 403) {
     proModel.onOpen();
     state.status = undefined;

@@ -1,5 +1,5 @@
 "use client";
-import { ConversationActionState } from "@/interfaces/interfaces";
+import { AudioActionStateInterface } from "@/interfaces/interfaces";
 import { useActionState } from "react";
 import { conversationSubmit } from "../actions/conversationActions";
 import { Button } from "@/components/ui/button";
@@ -8,14 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
 
 function MusicForm() {
-  const initialState: ConversationActionState = {
+  const initialState: AudioActionStateInterface = {
     errors: {},
     message: null,
   };
-  const [state, formAction, isPending] = useActionState(
-    conversationSubmit,
-    initialState,
-  );
+  const [state, formAction, isPending] = useActionState<
+    AudioActionStateInterface,
+    FormData
+  >(conversationSubmit, initialState);
   return (
     <form action={formAction} className={FormStyles}>
       <Textarea

@@ -1,5 +1,5 @@
 "use client";
-import { ConversationActionState } from "@/interfaces/interfaces";
+import { VideoActionStateInterface } from "@/interfaces/interfaces";
 import { useActionState } from "react";
 import { conversationSubmit } from "../actions/conversationActions";
 import { Button } from "@/components/ui/button";
@@ -8,14 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
 
 function VideoForm() {
-  const initialState: ConversationActionState = {
+  const initialState: VideoActionStateInterface = {
     errors: {},
     message: null,
   };
-  const [state, formAction, isPending] = useActionState(
-    conversationSubmit,
-    initialState,
-  );
+  const [state, formAction, isPending] = useActionState<
+    VideoActionStateInterface,
+    FormData
+  >(conversationSubmit, initialState);
   return (
     <form action={formAction} className={FormStyles}>
       <Textarea
@@ -25,11 +25,7 @@ function VideoForm() {
         required
         placeholder="Describe the video you want to generate..."
       />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className={SubmitButtonStyles}
-      >
+      <Button type="submit" disabled={isPending} className={SubmitButtonStyles}>
         <SendIcon />
       </Button>
       {state.errors?.prompt && (
