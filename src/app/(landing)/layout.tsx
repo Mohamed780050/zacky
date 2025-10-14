@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page Title",
-  description: "Page description",
+  title: "Zacky",
+  description: "The first and most advanced AI that have ever created",
 };
 
 export default function RootLayout({
