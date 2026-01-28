@@ -43,12 +43,12 @@ function ConversationForm() {
     <form
       ref={formRef}
       action={formAction}
-      className={cn(FormStyles, "flex items-end py-3 pr-2 pl-4")}
+      className={cn(FormStyles, "flex items-center py-3 pr-2 pl-4")}
     >
-      <div className="flex w-full items-end gap-2">
+      <div className="flex w-full items-center gap-2">
         <button
           type="button"
-          className="mb-1 rounded-full p-2 text-gray-400 transition hover:bg-white/5 hover:text-white"
+          className="rounded-full p-2 text-gray-400 transition hover:bg-white/5 hover:text-white"
         >
           <PlusIcon className="h-5 w-5" />
         </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useRef } from "react";
-import { PlusIcon, SendIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
 
 import { ConversationActionState } from "@/interfaces/interfaces";
@@ -37,13 +37,13 @@ function CodeForm() {
       action={formAction}
       className={cn(
         FormStyles,
-        "flex items-end border-green-700/20 py-3 pr-2 pl-4 focus-within:ring-green-700/20",
+        "relative flex items-center border-green-700/20 py-3 pr-2 pl-4 focus-within:ring-green-700/20",
       )}
     >
-      <div className="flex w-full items-end gap-2">
+      <div className="flex w-full items-center gap-2">
         <button
           type="button"
-          className="mb-1 rounded-full p-2 text-gray-400 transition hover:bg-white/5 hover:text-white"
+          className="rounded-full p-2 text-gray-400 transition hover:bg-white/5 hover:text-white"
         >
           <PlusIcon className="h-5 w-5" />
         </button>
@@ -55,7 +55,7 @@ function CodeForm() {
           required
           onKeyDown={handleKeyDown}
           placeholder="Ask or type your code here..."
-          className="min-h-[44px] py-3 text-[15px] leading-relaxed"
+          className="min-h-[44px] py-3 pr-12 text-[15px] leading-relaxed"
         />
 
         <Button
@@ -63,14 +63,14 @@ function CodeForm() {
           disabled={isPending}
           className={cn(
             SubmitButtonStyles,
-            "static top-auto right-auto translate-x-0 translate-y-0 bg-green-700/80 transition-all duration-300 hover:bg-green-700",
+            "bg-green-700/80 transition-all duration-300 hover:bg-green-700",
             !isPending && "hover:shadow-glow-primary scale-100",
           )}
         >
           {isPending ? (
             <Loader className="p-0 text-current" size={20} />
           ) : (
-            <SendIcon className="h-5 w-5" />
+            <PlusIcon className="h-5 w-5" />
           )}
         </Button>
       </div>
