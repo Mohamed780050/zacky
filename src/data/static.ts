@@ -52,11 +52,11 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
     icon: React.createElement(CodeIcon, { className: "text-green-700" }),
     bgColor: "bg-green-700/10",
   },
-  {
-    label: "Settings",
-    href: "/settings",
-    icon: React.createElement(SettingsIcon),
-  },
+  // {
+  //   label: "Settings",
+  //   href: "/settings",
+  //   icon: React.createElement(SettingsIcon),
+  // },
 ];
 
 export const FormStyles =
