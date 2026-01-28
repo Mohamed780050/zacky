@@ -60,9 +60,9 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
 ];
 
 export const FormStyles =
-  "fixed bottom-3 w-full max-w-[calc(100%-2rem)] gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)] bg-background";
+  "fixed bottom-4 w-full max-w-[calc(100%-2rem)] gap-2 rounded-2xl border border-white/10 bg-background/60 p-2 px-3 focus-within:ring-2 focus-within:ring-primary/40 backdrop-blur-xl md:max-w-[calc(100%-20rem)] md:px-4 lg:max-w-[calc(100%-21.5rem)] shadow-2xl transition-all duration-300 ease-in-out hover:bg-background/70 hover:border-white/20";
 export const SubmitButtonStyles =
-  "absolute top-1/2 right-1.5 translate-y-[-50%] cursor-pointer rounded-full";
+  "absolute top-1/2 right-3 translate-y-[-50%] cursor-pointer rounded-full bg-primary hover:bg-primary/90 text-primary-foreground p-2.5 transition-all hover:scale-110 hover:shadow-glow active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed border-0";
 // export const beforeElementOfMessages =
 //   "relative after:content-[''] after:block after:w-5 after:h-5 after:bg-red-800 after:absolute";
 export const instructions = [

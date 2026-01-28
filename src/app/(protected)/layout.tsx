@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 function layout({ children }: { children: ReactNode }) {
   return (
-    <div className="h-full relative">
+    <div className="bg-background relative h-full">
       <Sidebar />
-      <main className="md:pl-72">
+      <main className="h-full md:pl-72">
         <Navbar />
         {children}
       </main>

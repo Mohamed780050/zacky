@@ -18,7 +18,7 @@ function Tool({
 }) {
   return (
     <Card
-      className={`relative flex flex-row items-center justify-between border-black/5 p-4 transition hover:shadow-sm ${!isComingSoon && "cursor-pointer"}`}
+      className={`border-primary/10 bg-card/50 hover:bg-card relative flex flex-row items-center justify-between p-4 backdrop-blur-sm transition hover:shadow-md ${!isComingSoon && "cursor-pointer"}`}
     >
       <div className="flex items-center gap-x-4">
         <div className={cn("w-fit rounded-md p-2", bgColor)}>{icon}</div>

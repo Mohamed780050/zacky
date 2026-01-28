@@ -11,8 +11,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="h-full overflow-auto bg-[#111827]">
-      <div className="mx-auto h-full w-full max-w-screen-xl">{children}</div>
+    <main className="dark h-full overflow-auto bg-slate-900">
+      <div className="relative mx-auto h-full w-full max-w-screen-xl">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950 bg-[radial-gradient(#ffffff33_1px,#020617_1px)] bg-[size:20px_20px] opacity-20"></div>
+        <div className="absolute top-0 z-[-1] h-full w-full bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        {children}
+      </div>
     </main>
   );
 }

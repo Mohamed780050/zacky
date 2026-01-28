@@ -26,6 +26,7 @@ export async function conversationWithModel(prompt: string) {
   return await response.json();
 }
 
+
 export async function CreateImageWithAi(prompt: string) {
   const response = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
