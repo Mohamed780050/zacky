@@ -1,4 +1,4 @@
-import { instructions, instructionsForGenAi } from "@/data/static";
+import { instructions, instructionsForGenAi, instructionsForGenAiAndCoding } from "@/data/static";
 import { ai } from "./ai";
 
 export async function conversationWithModel(prompt: string) {
@@ -43,27 +43,13 @@ export async function CreateImageWithAi(prompt: string) {
 }
 
 export async function GenerateCodeWithModel(prompt: string) {
-  const response = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-goog-api-key": `${process.env.GOOGLE_AI_STUDIO_API_KEY}`,
+  const res = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      config: {
+        systemInstruction: instructionsForGenAiAndCoding.join("\n"),
       },
-      body: JSON.stringify({
-        system_instruction: {
-          // <-- tell the model how to behave
-          parts: [
-            ...instructions,
-            {
-              text: "here you only make code and if the user did not specify a programming language ues javascript by default.",
-            },
-          ],
-        },
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-    },
-  );
-  return await response.json();
+      contents: prompt,
+    });
+
+  return res.text;
 }

@@ -28,10 +28,10 @@ export async function CodeSubmit(
       throw { status: 403, message: "free trail is over" };
 
     await decreaseFreeTrailCount();
-    
+
     const data = await GenerateCodeWithModel(prompt);
 
-    await sendCode(prompt, `${data?.candidates?.[0]?.content?.parts[0].text}`);
+    await sendCode(prompt, `${data}`);
 
     revalidatePath("/code_generation");
     return {
