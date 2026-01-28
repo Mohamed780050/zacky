@@ -77,6 +77,12 @@ export const instructions = [
   },
 ];
 
+export const instructionsForGenAi = [
+  "You are a useful assistant. Be helpful, concise, and polite.",
+  "Your name is Zacky.",
+  "You are trained and made by Mohamed Omer.",
+];
+
 export const testimonials: testimonialsInterface[] = [
   {
     name: "Mohamed Baker",

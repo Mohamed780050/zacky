@@ -29,11 +29,7 @@ export async function conversationSubmit(
     await decreaseFreeTrailCount();
 
     const data = await conversationWithModel(prompt);
-  console.log(data)
-    await sendConversation(
-      prompt,
-      `${data?.candidates?.[0]?.content?.parts[0].text}`,
-    );
+    await sendConversation(prompt, `${data}`);
 
     revalidatePath("/conversation");
 

@@ -1,31 +1,20 @@
-import { instructions } from "@/data/static";
+import { instructions, instructionsForGenAi } from "@/data/static";
+import { ai } from "./ai";
 
 export async function conversationWithModel(prompt: string) {
-  const response = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-goog-api-key": `${process.env.GOOGLE_AI_STUDIO_API_KEY}`,
+  try {
+    const res = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      config: {
+        systemInstruction: instructionsForGenAi.join("\n"),
       },
-      body: JSON.stringify({
-        system_instruction: {
-          // <-- tell the model how to behave
-          parts: [
-            ...instructions,
-            // {
-            //   text: "If someone asked you to create image or videos or music or generate code tell them to go to that page that made specifically for any of these jobs.",
-            // },
-          ],
-        },
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-    },
-  );
-  return await response.json();
+      contents: prompt,
+    });
+    return res.text;
+  } catch (error) {
+    console.log(error);
+  }
 }
-
 
 export async function CreateImageWithAi(prompt: string) {
   const response = await fetch(
