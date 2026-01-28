@@ -1,52 +1,87 @@
 "use client";
+
+import { useActionState, useRef } from "react";
+import { PlusIcon, SendIcon } from "lucide-react";
+import { Loader } from "@/components/ui/loader";
+
 import { ConversationActionState } from "@/interfaces/interfaces";
-import { useActionState } from "react";
 import { CodeSubmit } from "../actions/CodeActions";
 import { Button } from "@/components/ui/button";
-import { SendIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
 import { cn } from "@/lib/utils";
 
 function CodeForm() {
+  const formRef = useRef<HTMLFormElement>(null);
+
   const initialState: ConversationActionState = {
     errors: {},
     message: null,
   };
+
   const [state, formAction, isPending] = useActionState<
     ConversationActionState,
     FormData
   >(CodeSubmit, initialState);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      formRef.current?.requestSubmit();
+    }
+  };
+
   return (
     <form
+      ref={formRef}
       action={formAction}
       className={cn(
         FormStyles,
-        "border-green-700/20 focus-within:ring-green-700/20",
+        "flex items-end border-green-700/20 py-3 pr-2 pl-4 focus-within:ring-green-700/20",
       )}
     >
-      <Textarea
-        id="prompt"
-        name="prompt"
-        disabled={isPending}
-        required
-        placeholder="Ask or type your code here..."
-      />
-      <Button
-        type="submit"
-        disabled={isPending}
-        className={cn(SubmitButtonStyles, "bg-green-700/80 hover:bg-green-700")}
-      >
-        <SendIcon />
-      </Button>
+      <div className="flex w-full items-end gap-2">
+        <button
+          type="button"
+          className="mb-1 rounded-full p-2 text-gray-400 transition hover:bg-white/5 hover:text-white"
+        >
+          <PlusIcon className="h-5 w-5" />
+        </button>
+
+        <Textarea
+          id="prompt"
+          name="prompt"
+          disabled={isPending}
+          required
+          onKeyDown={handleKeyDown}
+          placeholder="Ask or type your code here..."
+          className="min-h-[44px] py-3 text-[15px] leading-relaxed"
+        />
+
+        <Button
+          type="submit"
+          disabled={isPending}
+          className={cn(
+            SubmitButtonStyles,
+            "static top-auto right-auto translate-x-0 translate-y-0 bg-green-700/80 transition-all duration-300 hover:bg-green-700",
+            !isPending && "hover:shadow-glow-primary scale-100",
+          )}
+        >
+          {isPending ? (
+            <Loader className="p-0 text-current" size={20} />
+          ) : (
+            <SendIcon className="h-5 w-5" />
+          )}
+        </Button>
+      </div>
+
       {state.errors?.prompt && (
-        <div className="text-red-500">
-          {state.errors.prompt.map((error, index) => (
-            <p key={index}>{error}</p>
-          ))}
+        <div className="absolute -top-10 left-0 w-full text-center text-xs text-red-500">
+          {state.errors.prompt[0]}
         </div>
       )}
     </form>
   );
 }
+
 export default CodeForm;
