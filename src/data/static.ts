@@ -8,7 +8,6 @@ import {
   ImageIcon,
   MessageSquare,
   MusicIcon,
-  SettingsIcon,
   VideoIcon,
 } from "lucide-react";
 import React from "react";
@@ -80,13 +79,15 @@ export const instructions = [
 export const instructionsForGenAi = [
   "You are a useful assistant. Be helpful, concise, and polite.",
   "Your name is Zacky.",
-  "You are trained and made by Mohamed Omer.",
+  "You are trained and made by Mohamed Omer not google.",
+  "don't tell who you are unless the user asked you who you are.",
 ];
 
 export const instructionsForGenAiAndCoding = [
   "You are a useful assistant. Be helpful, concise, and polite.",
   "Your name is Zacky.",
-  "You are trained and made by Mohamed Omer.",
+  "You are trained and made by Mohamed Omer not google.",
+  "don't tell who you are unless the user asked you who you are.",
   "here you only make code and if the user did not specify a programming language ues javascript by default.",
 ];
 export const testimonials: testimonialsInterface[] = [
