@@ -16,17 +16,13 @@ export default function LandingNavbar() {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="fixed top-4 left-1/2 z-50 w-[90%] max-w-5xl -translate-x-1/2">
-      <nav className="bg-background/60 hover:bg-background/70 relative flex items-center justify-between rounded-full border border-white/10 px-4 py-1 shadow-2xl backdrop-blur-xl transition-all hover:border-white/20">
-        {/* Logo Section */}
-        <Link
-          href="/"
-          className="flex items-center gap-x-2 px-2 transition hover:opacity-80"
-        >
-          <Logo />
+    <nav className="fixed inset-x-0 top-6 z-50 mx-auto max-w-4xl px-4">
+      <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/40 px-4 py-2 shadow-2xl ring-1 ring-white/5 backdrop-blur-xl transition-all duration-300 hover:bg-black/50">
+        <Link href="/" className="flex items-center gap-x-2">
+          <Logo className="h-8 w-8 md:h-10 md:w-10" />
           <h1
             className={cn(
-              "hidden text-2xl font-bold text-white sm:block",
+              "hidden text-xl font-bold tracking-tight text-white sm:block",
               font.className,
             )}
           >
@@ -34,8 +30,7 @@ export default function LandingNavbar() {
           </h1>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-x-8 rounded-full border border-white/5 bg-white/5 px-8 py-1 md:flex">
+        <div className="hidden items-center gap-x-8 md:flex">
           <Link
             href="#features"
             className="hover:shadow-glow-text text-sm font-medium text-gray-300 transition-colors hover:text-white"
@@ -46,7 +41,7 @@ export default function LandingNavbar() {
             href="#how-it-works"
             className="hover:shadow-glow-text text-sm font-medium text-gray-300 transition-colors hover:text-white"
           >
-            How it Works
+            How it works
           </Link>
           <Link
             href="#faq"
@@ -56,29 +51,40 @@ export default function LandingNavbar() {
           </Link>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-x-4 pr-2">
-          {!isSignedIn && (
-            <Link href="/sign-in" className="hidden sm:block">
+        <div className="flex items-center gap-x-2">
+          {isSignedIn ? (
+            <Link href="/home">
               <Button
-                variant="ghost"
                 size="sm"
-                className="rounded-full text-gray-300 hover:bg-white/10 hover:text-white"
+                variant="premium"
+                className="rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 font-medium shadow-md hover:from-violet-700 hover:to-indigo-700"
               >
-                Sign In
+                Dashboard
               </Button>
             </Link>
+          ) : (
+            <div className="flex items-center gap-x-2">
+              <Link href="/sign-in">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="rounded-full font-medium text-gray-300 hover:bg-white/10 hover:text-white"
+                >
+                  Log in
+                </Button>
+              </Link>
+              <Link href="/sign-up">
+                <Button
+                  size="sm"
+                  className="rounded-full bg-white font-semibold text-black transition-all hover:scale-105 hover:bg-gray-200"
+                >
+                  Get Started
+                </Button>
+              </Link>
+            </div>
           )}
-          <Link href={isSignedIn ? "/home" : "/sign-up"}>
-            <Button
-              size="sm"
-              className="from-primary to-secondary hover:shadow-primary/25 rounded-full border-0 bg-gradient-to-r text-white shadow-lg transition-transform hover:scale-105"
-            >
-              {isSignedIn ? "Dashboard" : "Get Started"}
-            </Button>
-          </Link>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -31,33 +31,41 @@ export default function LandingFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div id="faq" className="mx-auto max-w-4xl scroll-mt-20 px-10 pb-20">
-      <h2 className="mb-12 text-center text-4xl font-extrabold text-white">
-        Frequently Asked Questions
-      </h2>
+    <div id="faq" className="mx-auto max-w-4xl scroll-mt-24 px-10 pb-20">
+      <div className="mb-16 space-y-4 text-center">
+        <h2 className="text-4xl font-extrabold text-white md:text-5xl">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-muted-foreground mx-auto max-w-2xl text-sm font-light md:text-lg">
+          Everything you need to know about our platform.
+        </p>
+      </div>
+
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="bg-background/30 overflow-hidden rounded-lg border border-white/10 backdrop-blur-sm"
+            className="group overflow-hidden rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/10"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="flex w-full items-center justify-between p-4 text-left transition hover:bg-white/5"
+              className="flex w-full items-center justify-between p-6 text-left"
             >
-              <span className="font-semibold text-white">{faq.question}</span>
+              <span className="group-hover:text-primary text-lg font-semibold text-white transition-colors">
+                {faq.question}
+              </span>
               {openIndex === index ? (
-                <ChevronUp className="h-5 w-5 text-gray-400" />
+                <Minus className="text-primary h-5 w-5" />
               ) : (
-                <ChevronDown className="h-5 w-5 text-gray-400" />
+                <Plus className="text-muted-foreground group-hover:text-primary h-5 w-5 transition-colors" />
               )}
             </button>
             <div
               className={cn(
-                "text-muted-foreground px-4 transition-all duration-300 ease-in-out",
+                "overflow-hidden px-6 leading-relaxed text-gray-400 transition-all duration-500 ease-in-out",
                 openIndex === index
-                  ? "max-h-40 pb-4 opacity-100"
-                  : "max-h-0 overflow-hidden opacity-0",
+                  ? "max-h-[200px] pb-6 opacity-100"
+                  : "max-h-0 opacity-0",
               )}
             >
               {faq.answer}

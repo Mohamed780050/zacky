@@ -1,7 +1,14 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageSquare, ImageIcon, VideoIcon, Music, Code } from "lucide-react";
+import {
+  MessageSquare,
+  ImageIcon,
+  VideoIcon,
+  Music,
+  Code,
+  ArrowRight,
+} from "lucide-react";
 
 const features = [
   {
@@ -43,28 +50,42 @@ const features = [
 
 export default function LandingFeatures() {
   return (
-    <div id="features" className="scroll-mt-20 px-10 pb-20">
-      <h2 className="mb-12 text-center text-4xl font-extrabold text-white">
-        Supercharge Your Creativity
-      </h2>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="features" className="scroll-mt-24 px-10 pb-20">
+      <div className="mb-16 space-y-4 text-center">
+        <h2 className="text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl">
+          Supercharge Your Creativity
+        </h2>
+        <p className="text-muted-foreground mx-auto max-w-2xl text-sm font-light md:text-lg">
+          Access the most powerful AI models in one platform.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((item) => (
           <Card
             key={item.title}
-            className="bg-background/20 border-primary/10 hover:shadow-glow border-0 text-white backdrop-blur-sm transition-all hover:-translate-y-1"
+            className="hover:shadow-primary/10 group relative cursor-pointer overflow-hidden border-0 border-white/10 bg-white/5 ring-1 ring-white/5 transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:shadow-xl"
           >
-            <CardHeader>
-              <CardTitle className="flex items-center gap-x-2">
-                <div className={`w-fit rounded-md p-2 ${item.bgColor}`}>
-                  <item.icon className={`h-8 w-8 ${item.color}`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+            />
+            <CardHeader className="relative z-10">
+              <CardTitle className="flex items-center gap-x-3">
+                <div
+                  className={`w-fit rounded-md p-2 ${item.bgColor} ${item.color} ring-1 ring-white/20 ring-inset`}
+                >
+                  <item.icon className="h-8 w-8" />
                 </div>
-                <div className="font-bold">{item.title}</div>
+                <div className="text-lg font-bold text-white">{item.title}</div>
               </CardTitle>
             </CardHeader>
-            <CardContent className="px-6 pt-2">
-              <p className="text-muted-foreground text-sm">
+            <CardContent className="relative z-10 px-6 pt-2 pb-6">
+              <p className="mb-4 text-sm leading-relaxed text-gray-300">
                 {item.description}
               </p>
+              <div className="flex items-center text-xs font-medium text-white/50 transition-colors group-hover:text-white">
+                Try it out{" "}
+                <ArrowRight className="ml-1 h-3 w-3 -translate-x-2 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+              </div>
             </CardContent>
           </Card>
         ))}
