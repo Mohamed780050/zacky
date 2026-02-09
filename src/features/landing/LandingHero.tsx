@@ -10,7 +10,7 @@ export default function LandingHero() {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="relative z-0 space-y-5 overflow-hidden py-36 text-center font-bold text-white">
+    <div className="relative z-0 mx-auto max-w-7xl space-y-5 overflow-hidden py-36 text-center font-bold text-white">
       {/* Background Gradients */}
       <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-[500px] w-[1000px] -translate-x-1/2 rounded-full bg-purple-500/20 opacity-50 blur-[120px]" />
       <div className="pointer-events-none absolute right-0 bottom-0 -z-10 h-[600px] w-[800px] rounded-full bg-blue-500/10 opacity-30 blur-[100px]" />
@@ -66,7 +66,7 @@ export default function LandingHero() {
       </div>
 
       <div className="z-10 text-xs font-normal text-gray-400 md:text-sm">
-        No credit card required &middot; 7-day free trial
+        No credit card required &middot; 15 messages trial
       </div>
     </div>
   );

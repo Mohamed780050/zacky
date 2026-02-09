@@ -25,7 +25,10 @@ const steps = [
 
 export default function LandingSteps() {
   return (
-    <div id="how-it-works" className="scroll-mt-24 px-10 pb-20">
+    <div
+      id="how-it-works"
+      className="mx-auto max-w-7xl scroll-mt-24 px-10 pb-20"
+    >
       <div className="mb-16 space-y-4 text-center">
         <h2 className="text-4xl font-extrabold text-white md:text-5xl">
           How It Works

@@ -8,14 +8,16 @@ import LandingFooter from "@/features/landing/LandingFooter";
 
 export default function Home() {
   return (
-    <div className="h-full">
-      <LandingNavbar />
-      <LandingHero />
-      <LandingFeatures />
-      <LandingSteps />
-      <LandingContent />
-      <LandingFAQ />
-      <LandingFooter />
-    </div>
+    <>
+      <div className="h-full">
+        <LandingNavbar />
+        <LandingHero />
+        <LandingFeatures />
+        <LandingSteps />
+        <LandingContent />
+        <LandingFAQ />
+        <LandingFooter />
+      </div>
+    </>
   );
 }

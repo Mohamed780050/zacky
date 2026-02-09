@@ -6,7 +6,10 @@ import { Quote } from "lucide-react";
 
 export default function LandingContent() {
   return (
-    <div className="mx-auto max-w-7xl scroll-mt-24 px-10 pb-20">
+    <div
+      id="testimonials"
+      className="mx-auto max-w-7xl scroll-mt-24 px-10 pb-20"
+    >
       <div className="mb-16 space-y-4 text-center">
         <h2 className="text-4xl font-extrabold text-white md:text-5xl">
           Loved by Creators

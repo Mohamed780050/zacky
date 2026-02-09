@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@clerk/nextjs";
 import Logo from "../root/_components/Logo";
+import { ArrowRight } from "lucide-react";
 
 const font = Montserrat({
   weight: "600",
@@ -16,13 +17,16 @@ export default function LandingNavbar() {
   const { isSignedIn } = useAuth();
 
   return (
-    <nav className="fixed inset-x-0 top-6 z-50 mx-auto max-w-4xl px-4">
-      <div className="flex items-center justify-between rounded-full border border-white/10 bg-black/40 px-4 py-2 shadow-2xl ring-1 ring-white/5 backdrop-blur-xl transition-all duration-300 hover:bg-black/50">
-        <Link href="/" className="flex items-center gap-x-2">
-          <Logo className="h-8 w-8 md:h-10 md:w-10" />
+    <nav className="fixed inset-x-0 top-4 z-50 mx-auto w-full max-w-7xl px-4">
+      <div className="flex h-16 items-center justify-between rounded-2xl border border-white/10 bg-[#030712]/40 px-6 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:bg-[#030712]/60">
+        <Link
+          href="/"
+          className="flex items-center gap-x-2.5 transition-opacity hover:opacity-80"
+        >
+          <Logo className="h-8 w-8" />
           <h1
             className={cn(
-              "hidden text-xl font-bold tracking-tight text-white sm:block",
+              "text-xl font-bold tracking-tight text-white",
               font.className,
             )}
           >
@@ -30,54 +34,50 @@ export default function LandingNavbar() {
           </h1>
         </Link>
 
-        <div className="hidden items-center gap-x-8 md:flex">
+        <div className="hidden items-center gap-x-12 md:flex">
           <Link
             href="#features"
-            className="hover:shadow-glow-text text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
             Features
           </Link>
           <Link
-            href="#how-it-works"
-            className="hover:shadow-glow-text text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            href="#testimonials"
+            className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
-            How it works
+            Testimonials
           </Link>
           <Link
-            href="#faq"
-            className="hover:shadow-glow-text text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            href="#pricing"
+            className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
-            FAQ
+            Pricing
           </Link>
         </div>
 
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-4">
           {isSignedIn ? (
             <Link href="/home">
               <Button
-                size="sm"
-                variant="premium"
-                className="rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 font-medium shadow-md hover:from-violet-700 hover:to-indigo-700"
+                size="lg"
+                className="group relative flex items-center gap-x-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
               >
                 Dashboard
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
           ) : (
-            <div className="flex items-center gap-x-2">
-              <Link href="/sign-in">
+            <div className="flex items-center gap-x-4">
+              <Link href="/sign-in" className="hidden sm:block">
                 <Button
                   variant="ghost"
-                  size="sm"
-                  className="rounded-full font-medium text-gray-300 hover:bg-white/10 hover:text-white"
+                  className="rounded-full font-medium text-gray-400 hover:bg-white/5 hover:text-white"
                 >
                   Log in
                 </Button>
               </Link>
               <Link href="/sign-up">
-                <Button
-                  size="sm"
-                  className="rounded-full bg-white font-semibold text-black transition-all hover:scale-105 hover:bg-gray-200"
-                >
+                <Button className="rounded-full bg-white px-8 font-bold text-black transition-all hover:scale-105 hover:bg-gray-100 active:scale-95">
                   Get Started
                 </Button>
               </Link>

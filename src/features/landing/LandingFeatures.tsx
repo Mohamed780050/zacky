@@ -50,7 +50,7 @@ const features = [
 
 export default function LandingFeatures() {
   return (
-    <div id="features" className="scroll-mt-24 px-10 pb-20">
+    <div id="features" className="mx-auto max-w-7xl scroll-mt-24 px-10 pb-20">
       <div className="mb-16 space-y-4 text-center">
         <h2 className="text-4xl font-extrabold text-white drop-shadow-lg md:text-5xl">
           Supercharge Your Creativity
