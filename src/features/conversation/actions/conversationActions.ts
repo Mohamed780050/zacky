@@ -6,6 +6,7 @@ import { sendConversation } from "@/lib/sendMessages";
 import { revalidatePath } from "next/cache";
 import { conversationWithModel } from "@/lib/communicateWithModels";
 import { CheckLimitation, decreaseFreeTrailCount } from "@/lib/api-limit";
+import { isProSubscription } from "@/lib/getSubscription";
 
 export async function conversationSubmit(
   prevState: ConversationActionState,
@@ -21,12 +22,16 @@ export async function conversationSubmit(
       return { errors: fieldErrors };
     }
 
-    const { prompt } = parsedData.data;
-    const stillCanUseFreeTrial = await CheckLimitation();
+    const hasProSubscription = await isProSubscription();
 
-    if (!stillCanUseFreeTrial)
-      throw { status: 403, message: "free trail is over" };
-    await decreaseFreeTrailCount();
+    const { prompt } = parsedData.data;
+
+    if (!hasProSubscription) {
+      const stillCanUseFreeTrial = await CheckLimitation();
+      if (!stillCanUseFreeTrial)
+        throw { status: 403, message: "free trail is over" };
+      await decreaseFreeTrailCount();
+    }
 
     const data = await conversationWithModel(prompt);
     await sendConversation(prompt, `${data}`);

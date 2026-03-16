@@ -6,6 +6,7 @@ import { sendCode } from "@/lib/sendMessages";
 import { GenerateCodeWithModel } from "@/lib/communicateWithModels";
 import { revalidatePath } from "next/cache";
 import { CheckLimitation, decreaseFreeTrailCount } from "@/lib/api-limit";
+import { isProSubscription } from "@/lib/getSubscription";
 
 export async function CodeSubmit(
   prevState: ConversationActionState,
@@ -22,10 +23,14 @@ export async function CodeSubmit(
     }
 
     const { prompt } = parsedData.data;
-    const stillCanUseFreeTrial = await CheckLimitation();
+    const hasProSubscription = await isProSubscription();
 
-    if (!stillCanUseFreeTrial)
-      throw { status: 403, message: "free trail is over" };
+    if (!hasProSubscription) {
+      const stillCanUseFreeTrial = await CheckLimitation();
+      if (!stillCanUseFreeTrial)
+        throw { status: 403, message: "free trail is over" };
+      await decreaseFreeTrailCount();
+    }
 
     await decreaseFreeTrailCount();
 
