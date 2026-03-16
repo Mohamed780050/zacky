@@ -8,7 +8,7 @@ interface LogoProps {
 function Logo({ className }: LogoProps) {
   return (
     <div className={cn("relative mr-2 h-24 w-24", className)}>
-      <Image fill src="/logo.png" alt="logo" />
+      <Image fill src="/logo.svg" alt="logo" />
     </div>
   );
 }
