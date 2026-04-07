@@ -13,6 +13,7 @@ export async function conversationSubmit(
   formData: FormData,
 ) {
   try {
+
     const parsedData = conversationSchema.safeParse({
       prompt: formData.get("prompt"),
     });
@@ -25,16 +26,16 @@ export async function conversationSubmit(
     const hasProSubscription = await isProSubscription();
 
     const { prompt } = parsedData.data;
-
     if (!hasProSubscription) {
       const stillCanUseFreeTrial = await CheckLimitation();
       if (!stillCanUseFreeTrial)
         throw { status: 403, message: "free trail is over" };
       await decreaseFreeTrailCount();
     }
-
     const data = await conversationWithModel(prompt);
+    console.log(data)
     await sendConversation(prompt, `${data}`);
+    console.log("working")
 
     revalidatePath("/conversation");
 

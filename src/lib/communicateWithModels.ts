@@ -2,6 +2,7 @@ import { instructions, instructionsForGenAi, instructionsForGenAiAndCoding } fro
 import { ai } from "./ai";
 
 export async function conversationWithModel(prompt: string) {
+  console.log(prompt)
   try {
     const res = await ai.models.generateContent({
       model: "gemini-3-flash-preview",

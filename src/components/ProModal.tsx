@@ -12,6 +12,7 @@ import { Badge } from "./ui/badge";
 import Tools from "@/features/home/Tools";
 import { Button } from "./ui/button";
 import { Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function ProModal() {
   const proModal = useProModal();
@@ -29,10 +30,12 @@ export default function ProModal() {
           </DialogTitle>
           <DialogDescription className="space-y-2 pt-2 text-center font-medium text-zinc-900">
             <Tools isINProModal isChecked />
-            <Button variant="premium" className="w-full cursor-pointer">
-              Upgrade
-              <Zap className="ml-2 h-4 w-4 fill-white" />
-            </Button>
+            <Link href="/pricing">
+              <Button variant="premium" className="w-full cursor-pointer" onClick={proModal.onClose}>
+                Upgrade
+                <Zap className="ml-2 h-4 w-4 fill-white" />
+              </Button>
+            </Link>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>

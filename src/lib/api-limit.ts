@@ -26,7 +26,7 @@ export async function decreaseFreeTrailCount() {
 export async function CheckLimitation() {
   const { userId } = await auth();
   if (!userId) return false;
-  const userLimitation = await db.userLimitation.findFirst({
+  const userLimitation = await db.userLimitation.findUnique({
     where: {
       userId,
     },

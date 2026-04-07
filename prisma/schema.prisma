@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -8,7 +8,7 @@ generator client {
 }
 
 model Conversation {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(cuid())
   message   String
   response  String
   userId    String
@@ -16,7 +16,7 @@ model Conversation {
 }
 
 model ImageMessage {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(cuid())
   imageUrl    String
   sender      String
   userId      String
@@ -25,7 +25,7 @@ model ImageMessage {
 }
 
 model VideoMessage {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(cuid()) 
   videoUrl    String
   sender      String
   userId      String
@@ -34,7 +34,7 @@ model VideoMessage {
 }
 
 model AudioMessage {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @default(cuid()) 
   audioUrl   String
   sender     String
   userId     String
@@ -43,7 +43,7 @@ model AudioMessage {
 }
 
 model CodeMessage {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(cuid())
   message     String
   response    String
   userId      String
@@ -52,15 +52,15 @@ model CodeMessage {
 }
 
 model UserLimitation {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String
+  id        String   @id @default(cuid())
+  userId    String   @unique()
   count     Int      @default(0)
   createAt  DateTime @default(now())
   updatedAt DateTime @updatedAt()
 }
 
 model UserSubscription {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  id     String @id 
   userId String @unique()
 
   planId            String // your plan identifier (maybe from Square)

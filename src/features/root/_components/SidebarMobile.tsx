@@ -9,10 +9,17 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import FreeCountRequest from "./FreeCountRequest";
 
-function SidebarMobile({ children }: { children: React.ReactNode }) {
+import { Button } from "@/components/ui/button";
+import { Sidebar } from "lucide-react";
+
+function SidebarMobile() {
   return (
     <Sheet>
-      <SheetTrigger asChild>{children}</SheetTrigger>
+      <SheetTrigger asChild>
+        <Button variant="ghost" className="cursor-pointer md:hidden">
+          <Sidebar />
+        </Button>
+      </SheetTrigger>
       <SheetContent side="left" className="bg-[#111827]">
         <SheetTitle className="hidden" />
         <SidebarLinks isADialog />

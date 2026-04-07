@@ -60,7 +60,7 @@ export default function LandingNavbar() {
             <Link href="/home">
               <Button
                 size="lg"
-                className="group relative flex items-center gap-x-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
+                className="group relative flex items-center gap-x-2 overflow-hidden rounded-full bg-linear-to-r from-blue-600 to-purple-600 px-8 font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
               >
                 Dashboard
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
