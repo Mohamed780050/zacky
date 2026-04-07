@@ -48,7 +48,7 @@ export default function LandingNavbar() {
             Testimonials
           </Link>
           <Link
-            href="#pricing"
+            href="/pricing"
             className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
             Pricing
