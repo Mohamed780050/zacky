@@ -14,19 +14,10 @@ const font = Montserrat({
 
 export default function PricingPage() {
   return (
-    <div className={cn("min-h-screen bg-slate-950 text-white", font.className)}>
-      <LandingNavbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]" />
-        <div className="absolute top-[20%] -right-[10%] w-[35%] h-[35%] rounded-full bg-purple-600/10 blur-[120px]" />
-        <div className="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] rounded-full bg-indigo-600/10 blur-[120px]" />
-      </div>
-
-      <main className="relative z-10 flex flex-col items-center pt-40 pb-24 px-6">
+    <div className={cn("flex flex-col min-h-screen", font.className)}>
+      <main className="flex flex-col items-center pt-52 pb-24 px-6 relative">
         <div className="max-w-4xl w-full text-center mb-16 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-linear-to-b from-white via-white to-white/50 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-b from-white via-white to-white/50 bg-clip-text text-transparent">
             Simple, Transparent <br /> Pricing Plans
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -43,6 +34,10 @@ export default function PricingPage() {
               variables: {
                 colorPrimary: "oklch(0.6 0.25 280)",
                 colorText: "#ffffff",
+                colorBackground: "#020617", // Rich dark slate background
+                colorInputBackground: "#111827", // Slightly lighter input backgrounds
+                colorInputText: "#ffffff",
+                colorTextSecondary: "#94a3b8", // Muted text color
                 fontFamily: font.style.fontFamily,
               },
               elements: {

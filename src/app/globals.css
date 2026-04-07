@@ -144,3 +144,14 @@ body,
 :root {
   height: 100%;
 }
+
+/* Force Clerk Pricing Table Checkout and Modals to be above the navbar (z-50) */
+.cl-modalContent,
+.cl-sidepanelBase,
+[class*="cl-pricingTable-checkoutPanel"],
+[class*="cl-pricingTable-checkoutModal"],
+[class*="cl-sidepanelBase"],
+[class*="cl-modalContent"] {
+  z-index: 99999 !important;
+}
+
