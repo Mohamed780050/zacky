@@ -47,8 +47,8 @@ function ImageMessagesAndResponse({
             className="bg-fuchsia-600 hover:bg-fuchsia-700"
           />
           
-          <div className="bg-muted/50 text-foreground mb-4 max-w-[calc(100%-40px)] self-start overflow-hidden rounded-2xl p-2 shadow-sm backdrop-blur-sm sm:max-w-1/2">
-            <div className="group relative aspect-square w-full sm:w-[400px]">
+          <div className="bg-muted/50 text-foreground mb-4 w-full max-w-[calc(100%-40px)] self-start overflow-hidden rounded-2xl p-2 shadow-sm backdrop-blur-sm sm:max-w-[420px]">
+            <div className="group relative aspect-square w-full">
               <Image 
                 src={item.imageUrl} 
                 alt={item.description || "Generated Image"} 
