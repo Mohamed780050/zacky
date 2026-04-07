@@ -29,7 +29,7 @@ export const SidebarLinksData: SidebarLinksInterface[] = [
     href: "/image_generation",
     icon: React.createElement(ImageIcon, { className: "text-pink-500" }),
     bgColor: "bg-pink-500/10",
-    isComingSoon: true,
+    // isComingSoon: true,  
   },
   {
     label: "Video Generation",

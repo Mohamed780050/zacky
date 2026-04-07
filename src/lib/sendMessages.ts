@@ -22,3 +22,15 @@ export async function sendCode(prompt: string, response: string) {
     },
   });
 }
+
+export async function sendImageMessage(prompt: string, imageUrl: string) {
+  const { userId } = await auth();
+  await db.imageMessage.create({
+    data: {
+      userId: `${userId}`,
+      imageUrl: imageUrl,
+      description: prompt,
+      sender: "AI",
+    },
+  });
+}

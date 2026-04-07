@@ -18,3 +18,13 @@ export async function getAllOfMyCode() {
   });
   return messages;
 }
+
+export async function getAllOfMyImages() {
+  const { userId } = await auth();
+  const messages = await db.imageMessage.findMany({
+    where: { userId: `${userId}` },
+    select: { imageUrl: true, description: true },
+    orderBy: { createdAt: "asc" }
+  });
+  return messages;
+}
