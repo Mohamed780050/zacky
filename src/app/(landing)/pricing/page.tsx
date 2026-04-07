@@ -16,8 +16,9 @@ export default function PricingPage() {
   return (
     <div className={cn("flex flex-col min-h-screen", font.className)}>
       <main className="flex flex-col items-center pt-52 pb-24 px-6 relative">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950 bg-[radial-gradient(#ffffff33_1px,#020617_1px)] bg-size-[20px_20px] opacity-20"></div>
         <div className="max-w-4xl w-full text-center mb-16 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-b from-white via-white to-white/50 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-linear-to-b from-white via-white to-white/50 bg-clip-text text-transparent">
             Simple, Transparent <br /> Pricing Plans
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -34,7 +35,6 @@ export default function PricingPage() {
               variables: {
                 colorPrimary: "oklch(0.6 0.25 280)",
                 colorText: "#ffffff",
-                colorBackground: "#020617", // Rich dark slate background
                 colorInputBackground: "#111827", // Slightly lighter input backgrounds
                 colorInputText: "#ffffff",
                 colorTextSecondary: "#94a3b8", // Muted text color
@@ -42,7 +42,7 @@ export default function PricingPage() {
               },
               elements: {
                 pricingTable: "bg-transparent",
-                pricingTableCard: "bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl transition-all duration-300 hover:border-white/20",
+                pricingTableCard: "bg-red-500 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl transition-all duration-300 hover:border-white/20",
                 pricingTableButton: "rounded-full font-bold transition-all hover:scale-[1.02] active:scale-95 px-8",
                 pricingTableFeatureList: "text-slate-300",
                 pricingTableHeader: "text-white",
