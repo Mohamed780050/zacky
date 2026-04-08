@@ -4,6 +4,7 @@ import Message from "../../../components/Message";
 import Image from "next/image";
 import { DownloadIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 interface ImageMessageInterface {
   description: string | null;
@@ -15,6 +16,7 @@ function ImageMessagesAndResponse({
 }: {
   messages: ImageMessageInterface[];
 }) {
+  const t = useTranslations("ImageGeneration");
   const downloadImage = async (url: string, description: string | null) => {
     try {
       const response = await fetch(url);
@@ -43,7 +45,7 @@ function ImageMessagesAndResponse({
       {messages.map((item, index) => (
         <li key={index} className="flex flex-col">
           <Message
-            message={item.description || "Generate an image"}
+            message={item.description || t("fallbackMessage")}
             className="bg-fuchsia-600 hover:bg-fuchsia-700"
           />
           
@@ -51,7 +53,7 @@ function ImageMessagesAndResponse({
             <div className="group relative aspect-square w-full">
               <Image 
                 src={item.imageUrl} 
-                alt={item.description || "Generated Image"} 
+                alt={item.description || t("altGeneratedImage")} 
                 fill
                 className="rounded-xl object-cover"
                 unoptimized

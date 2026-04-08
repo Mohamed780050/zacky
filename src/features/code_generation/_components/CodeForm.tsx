@@ -10,9 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { FormStyles, SubmitButtonStyles } from "@/data/static";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 function CodeForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useTranslations("CodeGeneration");
 
   const initialState: ConversationActionState = {
     errors: {},
@@ -35,7 +37,7 @@ function CodeForm() {
     <form
       ref={formRef}
       action={formAction}
-      className={cn(FormStyles, "flex items-center py-3 pr-2 pl-4")}
+      className={cn(FormStyles, "flex items-center py-3 pr-2 pl-4 rtl:pr-4 rtl:pl-2")}
     >
       <button
         type="button"
@@ -50,8 +52,8 @@ function CodeForm() {
         disabled={isPending}
         required
         onKeyDown={handleKeyDown}
-        placeholder="Ask or type your code here..."
-        className="min-h-[44px] py-3 pr-12 text-[15px] leading-relaxed"
+        placeholder={t("placeholder")}
+        className="min-h-[44px] py-3 pr-12 rtl:pr-3 rtl:pl-12 text-[15px] leading-relaxed"
       />
 
       <Button

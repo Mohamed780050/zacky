@@ -14,7 +14,7 @@ function FreeCount({ freeCount }: { freeCount: number }) {
 
   return (
     <div className="bg-[#111827] px-3 py-2">
-      <Card className="border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/[0.06]">
+      <Card className="border border-white/10 bg-white/3 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/6">
         <CardContent className="px-5 py-6">
           <div className="mb-5 space-y-4">
             <div className="flex items-center justify-between rtl:flex-row-reverse">

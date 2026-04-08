@@ -2,8 +2,10 @@ import Empty from "@/features/root/_components/Empty";
 import { ImageIcon } from "lucide-react";
 import { getAllOfMyImages } from "@/lib/getData";
 import ImageMessagesAndResponse from "./ImageMessagesAndResponse";
+import { getTranslations } from "next-intl/server";
 
 async function ImagePage() {
+  const t = await getTranslations("ImageGeneration");
   const messages = await getAllOfMyImages();
   
   return (
@@ -12,8 +14,8 @@ async function ImagePage() {
         <ImageMessagesAndResponse messages={messages} />
       ) : (
         <Empty
-          label="What is the image that you want me to create?"
-          description="I can generate images for you, just describe it below."
+          label={t("emptyLabel")}
+          description={t("emptyDescription")}
           icon={<ImageIcon className="h-15 w-15 text-fuchsia-600" />}
           bgColor="bg-fuchsia-600/10"
         />

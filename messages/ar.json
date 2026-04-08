@@ -126,5 +126,27 @@
     "Settings": "الإعدادات",
     "generations": "عمليات التوليد",
     "upgradeToPro": "الترقية للاحترافية"
+  },
+  "Conversation": {
+    "emptyLabel": "كيف يمكنني مساعدتك اليوم؟",
+    "emptyDescription": "ابدأ محادثة عن طريق كتابة رسالة بالأسفل.",
+    "placeholder": "ابدأ محادثتك هنا..."
+  },
+  "ImageGeneration": {
+    "emptyLabel": "ما هي الصورة التي تريد مني تصميمها؟",
+    "emptyDescription": "يمكنني توليد صور لك، فقط صفها بالأسفل.",
+    "placeholder": "صف الصورة التي ترغب في توليدها...",
+    "fallbackMessage": "توليد صورة",
+    "altGeneratedImage": "صورة مولدة"
+  },
+  "CodeGeneration": {
+    "emptyLabel": "ما هو الكود الذي تريد مني كتابته؟",
+    "emptyDescription": "أعرف كيف أكتب أكواداً بأي لغة برمجة، فقط صف ما تريده بالأسفل.",
+    "placeholder": "اسأل أو اكتب الكود الخاص بك هنا..."
+  },
+  "ProModal": {
+    "upgradeZacky": "ترقية حساب زاكي",
+    "pro": "برو",
+    "upgrade": "الترقية الآن"
   }
 }

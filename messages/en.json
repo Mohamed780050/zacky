@@ -126,5 +126,27 @@
     "Settings": "Settings",
     "generations": "Generations",
     "upgradeToPro": "Upgrade to Pro"
+  },
+  "Conversation": {
+    "emptyLabel": "How can I help you today?",
+    "emptyDescription": "Start a conversation by typing a message below.",
+    "placeholder": "Start your conversation here..."
+  },
+  "ImageGeneration": {
+    "emptyLabel": "What is the image that you want me to create?",
+    "emptyDescription": "I can generate images for you, just describe it below.",
+    "placeholder": "Describe the image you want to generate...",
+    "fallbackMessage": "Generate an image",
+    "altGeneratedImage": "Generated Image"
+  },
+  "CodeGeneration": {
+    "emptyLabel": "What is the code that you want me to write?",
+    "emptyDescription": "I do know how to write code with any language, just describe it below.",
+    "placeholder": "Ask or type your code here..."
+  },
+  "ProModal": {
+    "upgradeZacky": "Upgrade Zacky",
+    "pro": "Pro",
+    "upgrade": "Upgrade"
   }
 }
