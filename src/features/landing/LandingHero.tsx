@@ -5,9 +5,11 @@ import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import TypewriterComponent from "typewriter-effect";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function LandingHero() {
   const { isSignedIn } = useAuth();
+  const t = useTranslations("LandingHero");
 
   return (
     <div className="relative z-0 mx-auto max-w-7xl space-y-5 overflow-hidden py-36 text-center font-bold text-white">
@@ -19,23 +21,23 @@ export default function LandingHero() {
         <div className="flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-xl backdrop-blur-sm transition duration-300 hover:bg-white/10">
           <Sparkles className="h-4 w-4 text-purple-400" />
           <span className="text-sm font-medium text-gray-200">
-            The Next Gen AI Platform
+            {t("badge")}
           </span>
         </div>
       </div>
 
       <div className="z-10 space-y-5 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
         <h1 className="leading-tight drop-shadow-2xl">
-          The Best AI Tool for <br />
+          {t("titlePrefix")} <br />
           <span className="inline-block">
             <TypewriterComponent
               options={{
                 strings: [
-                  "Chatbot.",
-                  "Image Generation.",
-                  "Video Creation.",
-                  "Code Assistant.",
-                  "Music Composition.",
+                  t("typewriter.chatbot"),
+                  t("typewriter.image"),
+                  t("typewriter.video"),
+                  t("typewriter.code"),
+                  t("typewriter.music"),
                 ],
                 autoStart: true,
                 loop: true,
@@ -49,24 +51,23 @@ export default function LandingHero() {
       </div>
 
       <div className="z-10 mx-auto max-w-2xl px-4 text-sm font-light text-gray-300 drop-shadow-md md:text-xl">
-        Unleash your creativity with the power of AI. Create content 10x faster
-        with our state-of-the-art generative models.
+        {t("subtitle")}
       </div>
 
       <div className="z-10 pt-4">
         <Link href={isSignedIn ? "/home" : "/sign-up"}>
           <Button
             variant="premium"
-            className="rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 p-6 font-semibold shadow-lg ring-1 shadow-violet-500/25 ring-white/20 transition-all duration-300 hover:scale-105 hover:from-violet-700 hover:to-indigo-700 md:p-8 md:text-lg"
+            className="rtl:flex-row-reverse rounded-full bg-linear-to-r from-violet-600 to-indigo-600 p-6 font-semibold shadow-lg ring-1 shadow-violet-500/25 ring-white/20 transition-all duration-300 hover:scale-105 hover:from-violet-700 hover:to-indigo-700 md:p-8 md:text-lg"
           >
-            Start Generating For Free
+            {t("cta")}
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </Link>
       </div>
 
       <div className="z-10 text-xs font-normal text-gray-400 md:text-sm">
-        No credit card required &middot; 15 messages trial
+        {t("trialText")}
       </div>
     </div>
   );

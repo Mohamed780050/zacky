@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@clerk/nextjs";
 import Logo from "../root/_components/Logo";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const font = Montserrat({
   weight: "600",
@@ -15,6 +16,7 @@ const font = Montserrat({
 
 export default function LandingNavbar() {
   const { isSignedIn } = useAuth();
+  const t = useTranslations("LandingNavbar");
 
   return (
     <nav className="fixed inset-x-0 top-4 z-50 mx-auto w-full max-w-7xl px-4">
@@ -30,7 +32,7 @@ export default function LandingNavbar() {
               font.className,
             )}
           >
-            Zacky
+            {t("brand")}
           </h1>
         </Link>
 
@@ -39,19 +41,19 @@ export default function LandingNavbar() {
             href="#features"
             className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
-            Features
+            {t("features")}
           </Link>
           <Link
             href="#testimonials"
             className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
-            Testimonials
+            {t("testimonials")}
           </Link>
           <Link
             href="/pricing"
             className="text-sm font-semibold text-gray-400 transition-all duration-300 hover:text-white"
           >
-            Pricing
+            {t("pricing")}
           </Link>
         </div>
 
@@ -60,9 +62,9 @@ export default function LandingNavbar() {
             <Link href="/home">
               <Button
                 size="lg"
-                className="group relative flex items-center gap-x-2 overflow-hidden rounded-full bg-linear-to-r from-blue-600 to-purple-600 px-8 font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
+                className="rtl:flex-row-reverse group relative flex items-center gap-x-2 overflow-hidden rounded-full bg-linear-to-r from-blue-600 to-purple-600 px-8 font-bold text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] active:scale-95"
               >
-                Dashboard
+                {t("dashboard")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
@@ -73,12 +75,12 @@ export default function LandingNavbar() {
                   variant="ghost"
                   className="rounded-full font-medium text-gray-400 hover:bg-white/5 hover:text-white"
                 >
-                  Log in
+                  {t("logIn")}
                 </Button>
               </Link>
               <Link href="/sign-up">
                 <Button className="rounded-full bg-white px-8 font-bold text-black transition-all hover:scale-105 hover:bg-gray-100 active:scale-95">
-                  Get Started
+                  {t("getStarted")}
                 </Button>
               </Link>
             </div>

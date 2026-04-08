@@ -1,29 +1,32 @@
 "use client";
 
 import { UserPlus, Settings, Zap } from "lucide-react";
-
-const steps = [
-  {
-    id: 1,
-    title: "Sign Up",
-    description: "Create your free account in seconds.",
-    icon: UserPlus,
-  },
-  {
-    id: 2,
-    title: "Select Tool",
-    description: "Choose from our wide range of AI tools.",
-    icon: Settings,
-  },
-  {
-    id: 3,
-    title: "Generate",
-    description: "Get instant results powered by advanced AI.",
-    icon: Zap,
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function LandingSteps() {
+  const t = useTranslations("LandingSteps");
+
+  const steps = [
+    {
+      id: 1,
+      title: t("step1.title"),
+      description: t("step1.description"),
+      icon: UserPlus,
+    },
+    {
+      id: 2,
+      title: t("step2.title"),
+      description: t("step2.description"),
+      icon: Settings,
+    },
+    {
+      id: 3,
+      title: t("step3.title"),
+      description: t("step3.description"),
+      icon: Zap,
+    },
+  ];
+
   return (
     <div
       id="how-it-works"
@@ -31,16 +34,16 @@ export default function LandingSteps() {
     >
       <div className="mb-16 space-y-4 text-center">
         <h2 className="text-4xl font-extrabold text-white md:text-5xl">
-          How It Works
+          {t("title")}
         </h2>
         <p className="text-muted-foreground mx-auto max-w-2xl text-sm font-light md:text-lg">
-          Start creating in three simple steps.
+          {t("subtitle")}
         </p>
       </div>
 
       <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
         {/* Connecting Line (Desktop) */}
-        <div className="absolute top-12 right-[16%] left-[16%] z-0 hidden h-0.5 bg-gradient-to-r from-violet-500/50 via-purple-500/50 to-pink-500/50 md:block" />
+        <div className="absolute top-12 right-[16%] left-[16%] z-0 hidden h-0.5 bg-linear-to-r from-violet-500/50 via-purple-500/50 to-pink-500/50 md:block" />
 
         {steps.map((step, index) => (
           <div

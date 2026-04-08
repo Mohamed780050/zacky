@@ -3,37 +3,40 @@
 import Link from "next/link";
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
 import Logo from "../root/_components/Logo";
-
-const footerLinks = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "#features" },
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "FAQ", href: "#faq" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Cookie Policy", href: "/cookies" },
-    ],
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function LandingFooter() {
+  const t = useTranslations("LandingFooter");
+
+  const footerLinks = [
+    {
+      title: t("product"),
+      links: [
+        { label: t("features"), href: "#features" },
+        { label: t("howItWorks"), href: "#how-it-works" },
+        { label: t("pricing"), href: "/pricing" },
+        { label: t("faq"), href: "#faq" },
+      ],
+    },
+    {
+      title: t("company"),
+      links: [
+        { label: t("about"), href: "/about" },
+        { label: t("blog"), href: "/blog" },
+        { label: t("careers"), href: "/careers" },
+        { label: t("contact"), href: "/contact" },
+      ],
+    },
+    {
+      title: t("legal"),
+      links: [
+        { label: t("privacy"), href: "/privacy" },
+        { label: t("terms"), href: "/terms" },
+        { label: t("cookies"), href: "/cookies" },
+      ],
+    },
+  ];
+
   return (
     <footer className="border-t border-white/10 bg-black/50 pt-16 pb-8 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-10">
@@ -47,8 +50,7 @@ export default function LandingFooter() {
               </span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-gray-400">
-              The next generation AI platform for creators, developers, and
-              innovators. Build something amazing today.
+              {t("description")}
             </p>
             <div className="flex gap-x-4 pt-2">
               <Link
@@ -102,21 +104,20 @@ export default function LandingFooter() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Zacky AI. All rights reserved.
-            Built with ❤️ for the future.
+            {t("copyright")}
           </p>
           <div className="flex gap-x-8">
             <Link
               href="/privacy"
               className="text-xs text-gray-500 transition-colors hover:text-white"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             <Link
               href="/terms"
               className="text-xs text-gray-500 transition-colors hover:text-white"
             >
-              Terms of Service
+              {t("termsOfService")}
             </Link>
           </div>
         </div>

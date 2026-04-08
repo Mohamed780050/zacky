@@ -3,8 +3,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { testimonials } from "@/data/static";
 import { Quote } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function LandingContent() {
+  const t = useTranslations("LandingContent");
+
   return (
     <div
       id="testimonials"
@@ -12,11 +15,10 @@ export default function LandingContent() {
     >
       <div className="mb-16 space-y-4 text-center">
         <h2 className="text-4xl font-extrabold text-white md:text-5xl">
-          Loved by Creators
+          {t("title")}
         </h2>
         <p className="text-muted-foreground mx-auto max-w-2xl text-sm font-light md:text-lg">
-          Join thousands of users who are already using Zacky to power their
-          workflow.
+          {t("subtitle")}
         </p>
       </div>
 
@@ -30,7 +32,7 @@ export default function LandingContent() {
               <Quote className="group-hover:text-primary/20 absolute top-4 right-4 h-8 w-8 text-white/5 transition-colors" />
               <CardTitle className="flex items-center gap-x-3">
                 <div className="relative">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 p-0.5">
+                  <div className="h-12 w-12 rounded-full bg-linear-to-br from-violet-500 to-pink-500 p-0.5">
                     <div className="flex h-full w-full items-center justify-center rounded-full bg-black text-lg font-bold">
                       {item.name[0]}
                     </div>
