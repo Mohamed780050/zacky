@@ -6,6 +6,7 @@ import { PricingTable } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 const font = Montserrat({
   weight: ["400", "600", "700"],
@@ -13,17 +14,17 @@ const font = Montserrat({
 });
 
 export default function PricingPage() {
+  const t = useTranslations("Pricing");
   return (
     <div className={cn("flex flex-col min-h-screen", font.className)}>
       <main className="flex flex-col items-center pt-52 pb-24 px-6 relative">
         <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950 bg-[radial-gradient(#ffffff33_1px,#020617_1px)] bg-size-[20px_20px] opacity-20"></div>
         <div className="max-w-4xl w-full text-center mb-16 space-y-6">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-linear-to-b from-white via-white to-white/50 bg-clip-text text-transparent">
-            Simple, Transparent <br /> Pricing Plans
+            {t("titleLine1")} <br /> {t("titleLine2")}
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Choose the power of Zacky AI that fits your needs. No hidden fees, cancel anytime.
-            Trusted by developers and creators worldwide.
+            {t("subtitle")}
           </p>
         </div>
 
