@@ -8,6 +8,7 @@ import { useAuth } from "@clerk/nextjs";
 import Logo from "../root/_components/Logo";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 const font = Montserrat({
   weight: "600",
@@ -58,6 +59,7 @@ export default function LandingNavbar() {
         </div>
 
         <div className="flex items-center gap-x-4">
+          <LocaleSwitcher />
           {isSignedIn ? (
             <Link href="/home">
               <Button
