@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@clerk/nextjs";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import TypewriterComponent from "typewriter-effect";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";

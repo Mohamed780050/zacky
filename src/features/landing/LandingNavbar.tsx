@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@clerk/nextjs";
 import Logo from "../root/_components/Logo";

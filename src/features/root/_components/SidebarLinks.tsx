@@ -1,23 +1,25 @@
 "use client";
 import { SheetClose } from "@/components/ui/sheet";
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/routing";
 import Logo from "./Logo";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SidebarLinksData } from "@/data/static";
-import { usePathname } from "next/navigation";
+
+import { useTranslations } from "next-intl";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 
 function SidebarLinks({ isADialog }: { isADialog?: boolean }) {
   const pathname = usePathname();
+  const t = useTranslations("Sidebar");
   return (
     <div className="flex h-full flex-col space-y-4 bg-[#111827] py-4 text-white">
       <div className="mb-14 pl-3">
         <Link href="/home" className="flex items-center">
           <Logo />
           <h1 className={cn("text-2xl font-bold", montserrat.className)}>
-            Zacky
+            {t("brand")}
           </h1>
         </Link>
       </div>
@@ -36,7 +38,7 @@ function SidebarLinks({ isADialog }: { isADialog?: boolean }) {
                     )}
                   >
                     {link.icon}
-                    {link.label}
+                    {t(link.label as any)}
                   </Link>
                 </SheetClose>
               ) : (
@@ -48,7 +50,7 @@ function SidebarLinks({ isADialog }: { isADialog?: boolean }) {
                   )}
                 >
                   {link.icon}
-                  {link.label}
+                  {t(link.label as any)}
                 </Link>
               )}
             </li>

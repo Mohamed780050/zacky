@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
 import Logo from "../root/_components/Logo";
 import { useTranslations } from "next-intl";

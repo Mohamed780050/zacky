@@ -1,6 +1,6 @@
 import { SidebarLinksData } from "@/data/static";
 import Tool from "./Tool";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 function Tools({
   isINProModal,

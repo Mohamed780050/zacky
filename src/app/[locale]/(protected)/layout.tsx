@@ -11,7 +11,7 @@ function layout({ children }: { children: ReactNode }) {
   return (
     <div className="bg-background relative min-h-screen">
       <Sidebar />
-      <main className="min-h-screen md:pl-72">
+      <main className="min-h-screen md:pl-72 rtl:md:pl-0 rtl:md:pr-72">
         <Navbar />
         <div className="pt-5">{children}</div>
       </main>

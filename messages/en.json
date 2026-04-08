@@ -114,5 +114,17 @@
     "titleLine1": "Simple, Transparent",
     "titleLine2": "Pricing Plans",
     "subtitle": "Choose the power of Zacky AI that fits your needs. No hidden fees, cancel anytime. Trusted by developers and creators worldwide."
+  },
+  "Sidebar": {
+    "brand": "Zacky",
+    "Home": "Home",
+    "Conversation": "Conversation",
+    "Image Generation": "Image Generation",
+    "Video Generation": "Video Generation",
+    "Music Generation": "Music Generation",
+    "Code Generation": "Code Generation",
+    "Settings": "Settings",
+    "generations": "Generations",
+    "upgradeToPro": "Upgrade to Pro"
   }
 }

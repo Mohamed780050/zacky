@@ -29,7 +29,7 @@ function Tool({
           <ComingSoonBanner />
         </div>
       ) : (
-        <ArrowRight className={`${isChecked && "hidden"} h-5 w-5`} />
+        <ArrowRight className={`${isChecked && "hidden"} h-5 w-5 rtl:rotate-180`} />
       )}
       {isChecked && <Check />}
     </Card>
